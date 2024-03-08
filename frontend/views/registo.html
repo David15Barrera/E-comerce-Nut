@@ -49,11 +49,11 @@
                 <b><label for="lastname">Apellido:</label></b>
                 <input type="text" id="lastname" placeholder="Ingrese su apellido">
 
-                <b><label for="dpi">DPI:</label></b>
-                <input type="number" id="dpi" placeholder="Ingrese su dpi">
+                <label for="dpi">DPI:</label>
+                <input type="text" id="dpi" name="dpi" maxlength="13" inputmode="numeric" pattern="[0-9]{13}" placeholder="Ingrese su DPI (13 dígitos)" required>
 
-                <b><label for="celular">Celular</label></b>
-                <input type="number" id="celular" placeholder="Ingrese número de celular">
+                <label for="numeroCelular">Celular:</label>
+                <input type="tel" id="numeroCelular" name="numeroCelular" inputmode="numeric" maxlength="8" pattern="[0-9]{8}" placeholder="Ingrese su número de celular" required>
 
             </div>
         </div>
