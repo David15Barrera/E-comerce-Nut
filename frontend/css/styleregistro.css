@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.titulo-principal {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 100px; /* Ajusta la posición vertical según sea necesario */
+}
+.registro-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 400px;
+    color: rgb(16, 14, 14);
+}
+
+.registro-form {
+    width: 500px;
+    height: 350px;
+    margin-right: 20px; /* Ajusta el margen derecho para separar los contenedores */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.texto-lateral {
+    width: 500px; /* Igualar el ancho al del registro-form */
+    height: 350px;
+    padding: 20px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 8px;
+}
+
+.registro-form h2 {
+    text-align: center; /* Centra el texto "Registro de Nuevo Usuario" */
+    margin-bottom: 20px; /* Agrega espacio bajo el título */
+}
+
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.registrar-btn {
+    display: block;
+    margin: 20px auto; /* Centra el botón horizontalmente y agrega margen superior e inferior */
+    padding: 15px 30px; /* Ajusta el padding para hacer el botón cuadrado */
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.registrar-btn:hover {
+    background-color: #2980b9;
+}

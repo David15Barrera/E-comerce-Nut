@@ -8,8 +8,6 @@ CREATE TABLE IF NOT EXISTS USUARIO(
 	password VARCHAR(100) NOT NULL,
 	rol VARCHAR(100) NOT NULL,
 	estatus VARCHAR(75),
-	dateRegistro VARCHAR(50),
-	lastConexion VARCHAR(50)
 	PRIMARY KEY(idUser)
 );
 
@@ -22,6 +20,7 @@ CREATE TABLE IF NOT EXISTS USUARIODATOS(
     direccionUser VARCHAR(150),
     telefonoUser VARCHAR(8) NOT NULL,
     genero VARCHAR(15),
+	dateRegistro VARCHAR(50),
 	PRIMARY KEY(idUserdatos),
 	FOREIGN KEY (idUserdatos) REFERENCES USUARIO(idUser)
 );
