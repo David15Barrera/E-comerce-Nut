@@ -14,16 +14,6 @@ body {
     padding-top: 40px;
 }
 
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #2980b9; /* Azul */
-    padding-top: 40px;
-}
-
 .sidebar h3 {
     margin-top: -40px; /* Controla la distancia desde la parte superior del sidebar */
     padding: 20px 0; /* Añade relleno para hacer que el título se vea más grande */
@@ -35,6 +25,11 @@ body {
     letter-spacing: 1px; /* Añade espacio entre letras */
 }
 
+.sidebar h3 span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+}
 .sidebar ul {
     list-style: none;
     padding: 0;
