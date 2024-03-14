@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #2980b9; /* Azul */
+    padding-top: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 5px;
+}
+
+.sidebar ul li a {
+    color: #fff; /* Color del texto */
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    padding: 15px 20px; /* Espaciado interno */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Cuando el puntero del mouse está encima */
+.sidebar ul li a:hover {
+    background-color: #1a5276; /* Cambia el color de fondo al pasar el ratón */
+    color: #fff; /* Cambia el color del texto al pasar el ratón */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Añade sombra al pasar el ratón */
+}
+
+/* Cuando el elemento está activo (seleccionado) */
+.sidebar ul li a.active {
+    background-color: #154360; /* Cambia el color de fondo cuando está activo */
+    color: #fff; /* Cambia el color del texto cuando está activo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Añade sombra cuando está activo */
+}s
+.sidebar ul li a span {
+    margin-left: 10px;
+}
+
+.content {
+    margin-left: 200px; /* Ancho del menú lateral */
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1, p {
+    color: #000; /* Negro */
+    opacity: 0; /* Inicialmente, el texto estará oculto */
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate__animated {
+    animation-duration: 1s; /* Duración de la animación */
+    animation-fill-mode: both;
+}
+
+.animate__fadeInDown {
+    animation-name: fadeInDown;
+}
+
+.animate__fadeInUp {
+    animation-name: fadeInUp;
+}

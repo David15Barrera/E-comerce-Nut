@@ -16,6 +16,7 @@
 
 body{
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 0; 
 }
 
 .container{
@@ -631,8 +632,8 @@ button:hover {
 
 /* Estilo general del footer */
 footer {
-  background-color: #333; /* Color de fondo del footer */
-  color: #fff; /* Color del texto en el footer */
+  background-color:rgba(24, 135, 226, 0.966);/* Color de fondo del footer */
+  color: #f8f2f2; /* Color del texto en el footer */
   padding: 20px; /* Espaciado interno del footer */
 }
 
@@ -649,5 +650,5 @@ footer {
 
 /* Agregar un efecto de hover al texto si lo deseas */
 .conteiner_footer p:hover {
-  color: #ffcc00; /* Cambiar el color del texto al pasar el mouse sobre él */
+  color: #00eeff; /* Cambiar el color del texto al pasar el mouse sobre él */
 }
