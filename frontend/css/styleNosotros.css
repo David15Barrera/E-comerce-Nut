@@ -1,0 +1,15 @@
+.col-md-4 {
+    display: flex; /* Convertir la columna en un contenedor flex */
+    align-items: center; /* Alinear verticalmente los elementos hijos */
+}
+
+.col-md-4 img {
+    width: 70%; /* Esto hará que la imagen ocupe el ancho completo de su contenedor */
+    height: auto; /* Esto mantendrá la proporción de aspecto de la imagen */
+    margin: 0 auto; /
+    
+}
+/* Agrega un identificador único para aumentar la especificidad */
+#custom-services .services-icon-wap:hover {
+    background-color: rgb(84, 174, 204); /* Cambiar el color de fondo a celeste */
+}
