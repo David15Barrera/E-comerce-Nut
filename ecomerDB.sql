@@ -3,26 +3,26 @@ CREATE SCHEMA IF NOT EXISTS ECOMARCEDB;
 use ECOMARCEDB;
 
 CREATE TABLE IF NOT EXISTS USUARIO(
-	idUser INT AUTO_INCREMENT,
-	email VARCHAR(100) UNIQUE NOT NULL,
-	password VARCHAR(100) NOT NULL,
-	rol VARCHAR(100) NOT NULL,
-	estatus VARCHAR(75),
-	PRIMARY KEY(idUser)
+    idUser INT UNSIGNED AUTO_INCREMENT,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    rol VARCHAR(100) NOT NULL,
+    estatus VARCHAR(75),
+    PRIMARY KEY(idUser)
 );
 
 CREATE TABLE IF NOT EXISTS USUARIODATOS(
-	idUserdatos INT AUTO_INCREMENT,
-	name VARCHAR(255),
-	lastName VARCHAR(255),
+    idUserdatos INT AUTO_INCREMENT,
+    name VARCHAR(255),
+    lastName VARCHAR(255),
     dpiUser VARCHAR(225) UNIQUE NOT NULL,
     nitUserDatos VARCHAR(100) NOT NULL,
     direccionUser VARCHAR(150),
-    telefonoUser VARCHAR(8) NOT NULL,
+    telefonoUser VARCHAR(20) NOT NULL,
     genero VARCHAR(15),
-	dateRegistro VARCHAR(50),
-	PRIMARY KEY(idUserdatos),
-	FOREIGN KEY (idUserdatos) REFERENCES USUARIO(idUser)
+    dateRegistro VARCHAR(50),
+    PRIMARY KEY(idUserdatos),
+    FOREIGN KEY(idUserdatos) REFERENCES USUARIO(idUser)
 );
 
 CREATE TABLE IF NOT EXISTS PUBLICACIONES(
@@ -39,7 +39,8 @@ CREATE TABLE IF NOT EXISTS PUBLICACIONES(
 	cantidadDisponible INT,
 	ubicacion VARCHAR(255),
 	FechaPublicacion DATETIME,
-	FecaExpiracion DATETIME,
+	FechaExpiracion DATETIME,
+	puntos INT,
 	PRIMARY KEY (idPublicaciones),
 	FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
@@ -71,11 +72,14 @@ CREATE TABLE IF NOT EXISTS TRANSACCIONES(
     FOREIGN KEY (publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
---Tabla con datos aun por definir
-CREATE TABLE IF NOT EXISTS FACTURAS(
-	idFactura INT AUTO_INCREMENT,
-	transaccionesId INT,
-	PRIMARY KEY (idFactura)
+CREATE TABLE IF NOT EXISTS CARRITO (
+    idCarrito INT AUTO_INCREMENT,
+    userId INT,
+    publicacionesId INT,
+    cantidad INT,
+    PRIMARY KEY(idCarrito),
+    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
 
@@ -89,6 +93,16 @@ CREATE TABLE CREDITOS (
     FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
 
+CREATE TABLE IF NOT EXISTS VOLUNTARIADOS (
+    idVoluntariado INT AUTO_INCREMENT,
+    userId INT,
+    publicacionesId INT,
+    PRIMARY KEY(idVoluntariado),
+    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
+);
+
+
 CREATE TABLE REPORTES (
     idReporte INT AUTO_INCREMENT,
     userReportadoId INT,
@@ -96,10 +110,10 @@ CREATE TABLE REPORTES (
     publicacionId INT,
     razonReporte TEXT,
     estadoReporte ENUM('pendiente', 'resuelto'),
-    PRIMARY KEY (idReporte)
-    FOREIGN KEY (userReportadoId) REFERENCES USUARIO(UserID),
-    FOREIGN KEY (userReportadorId) REFERENCES USUARIO(UserID),
-    FOREIGN KEY (publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
+    PRIMARY KEY(idReporte),
+    FOREIGN KEY(userReportadoId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(userReportadorId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
 CREATE TABLE VALORACIONES (
@@ -110,8 +124,8 @@ CREATE TABLE VALORACIONES (
     puntuacion INT,
     comentario TEXT,
     dateValoracion DATETIME,
-	PRIMARY KEY (idValoraciones),
-    FOREIGN KEY (userEvaluadorId) REFERENCES Usuarios(UserID),
-    FOREIGN KEY (userEvaluadoId) REFERENCES Usuarios(UserID),
-    FOREIGN KEY (publicacionId) REFERENCES Publicaciones(PublicacionID)
+    PRIMARY KEY(idValoraciones),
+    FOREIGN KEY(userEvaluadorId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(userEvaluadoId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
