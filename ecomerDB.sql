@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS USUARIO(
 
 CREATE TABLE IF NOT EXISTS USUARIODATOS(
     idUserdatos INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
     name VARCHAR(255),
     lastName VARCHAR(255),
     dpiUser VARCHAR(225) UNIQUE NOT NULL,
@@ -22,34 +23,34 @@ CREATE TABLE IF NOT EXISTS USUARIODATOS(
     genero VARCHAR(15),
     dateRegistro VARCHAR(50),
     PRIMARY KEY(idUserdatos),
-    FOREIGN KEY(idUserdatos) REFERENCES USUARIO(idUser)
+    FOREIGN KEY(userId) REFERENCES USUARIO(idUser)
 );
 
 CREATE TABLE IF NOT EXISTS PUBLICACIONES(
-	idPublicaciones int AUTO_INCREMENT,
-	userId int(50),
-	Tipo VARCHAR(250),
-	titulo VARCHAR(250),
-	Descripcion TEXT,
-	categoria VARCHAR(255),
-	estado ENUM('APROBADA', 'RECHAZADA', 'PENDIENTE'),
-	Imagen BLOB,
-	precioSistema decimal(10, 2,)
-	precioLocal decimal(10, 2),
-	cantidadDisponible INT,
-	ubicacion VARCHAR(255),
-	FechaPublicacion DATETIME,
-	FechaExpiracion DATETIME,
-	puntos INT,
-	PRIMARY KEY (idPublicaciones),
-	FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
+    idPublicaciones INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
+    Tipo VARCHAR(250),
+    titulo VARCHAR(250),
+    Descripcion TEXT,
+    categoria VARCHAR(255),
+    estado ENUM('APROBADA', 'RECHAZADA', 'PENDIENTE'),
+    Imagen BLOB,
+    precioSistema DECIMAL(10, 2),
+    precioLocal DECIMAL(10, 2),
+    cantidadDisponible INT,
+    ubicacion VARCHAR(255),
+    FechaPublicacion DATETIME,
+    FechaExpiracion DATETIME,
+    puntos INT,
+    PRIMARY KEY (idPublicaciones),
+    FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
 
 CREATE TABLE IF NOT EXISTS CHATS(
 	idChat INT,
 	publicacionesId INT,
-	emisor INT,
-	receptor INT,
+	emisor INT UNSIGNED,
+	receptor INT UNSIGNED,
 	mensaje TEXT,
 	timeMessage DATETIME,
 	PRIMARY KEY (idChat),
@@ -58,23 +59,23 @@ CREATE TABLE IF NOT EXISTS CHATS(
 	FOREIGN KEY (receptor) REFERENCES USUARIO(idUser)
 );
 
-CREATE TABLE IF NOT EXISTS TRANSACCIONES(
-	idTransaccion INT AUTO_INCREMENT,
-	vendedorId INT,
-	compradorId INT,
-	publicacionesId INT,
-	Monto decimal(10, 2),
-	moneda ENUM('sistema','local')
-	dateTransaccion DATETIME,
-	PRIMARY KEY (idTransaccion),
-	FOREIGN KEY (vendedorId) REFERENCES USUARIO(idUser),
+CREATE TABLE IF NOT EXISTS TRANSACCIONES (
+    idTransaccion INT AUTO_INCREMENT,
+    vendedorId INT UNSIGNED,
+    compradorId INT UNSIGNED,
+    publicacionesId INT,
+    Monto DECIMAL(10, 2),
+    moneda ENUM('sistema','local'),
+    dateTransaccion DATETIME,
+    PRIMARY KEY (idTransaccion),
+    FOREIGN KEY (vendedorId) REFERENCES USUARIO(idUser),
     FOREIGN KEY (compradorId) REFERENCES USUARIO(idUser),
     FOREIGN KEY (publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
 CREATE TABLE IF NOT EXISTS CARRITO (
     idCarrito INT AUTO_INCREMENT,
-    userId INT,
+    userId INT UNSIGNED,
     publicacionesId INT,
     cantidad INT,
     PRIMARY KEY(idCarrito),
@@ -85,7 +86,7 @@ CREATE TABLE IF NOT EXISTS CARRITO (
 
 CREATE TABLE CREDITOS (
     idCredito INT AUTO_INCREMENT,
-    userId INT,
+    userId INT UNSIGNED,
     Monto DECIMAL(10, 2),
     FechaGeneracion DATETIME,
     Estado ENUM('pendiente', 'utilizado'),
@@ -95,7 +96,7 @@ CREATE TABLE CREDITOS (
 
 CREATE TABLE IF NOT EXISTS VOLUNTARIADOS (
     idVoluntariado INT AUTO_INCREMENT,
-    userId INT,
+    userId INT UNSIGNED,
     publicacionesId INT,
     PRIMARY KEY(idVoluntariado),
     FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
@@ -105,8 +106,8 @@ CREATE TABLE IF NOT EXISTS VOLUNTARIADOS (
 
 CREATE TABLE REPORTES (
     idReporte INT AUTO_INCREMENT,
-    userReportadoId INT,
-    userReportadorId INT,
+    userReportadoId INT UNSIGNED,
+    userReportadorId INT UNSIGNED,
     publicacionId INT,
     razonReporte TEXT,
     estadoReporte ENUM('pendiente', 'resuelto'),
@@ -118,8 +119,8 @@ CREATE TABLE REPORTES (
 
 CREATE TABLE VALORACIONES (
     idValoraciones INT AUTO_INCREMENT,
-    userEvaluadorId INT,
-    userEvaluadoId INT,
+    userEvaluadorId INT UNSIGNED,
+    userEvaluadoId INT UNSIGNED,
     publicacionId INT,
     puntuacion INT,
     comentario TEXT,
@@ -129,3 +130,4 @@ CREATE TABLE VALORACIONES (
     FOREIGN KEY(userEvaluadoId) REFERENCES USUARIO(idUser),
     FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
+    
