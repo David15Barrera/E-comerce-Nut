@@ -7,7 +7,7 @@ body {
     background-position: -20px bottom; /* Posición de la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-size: auto 400px; /* Tamaño de la imagen */
-    min-height: 86vh; /* Establece el mínimo alto de la página */ 
+    min-height: 50vh; /* Establece el mínimo alto de la página */ 
 }
 
 .titulo-principal {

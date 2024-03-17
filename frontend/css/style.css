@@ -629,26 +629,88 @@ button:hover {
   margin-top: 30px;
 }
 
-
-/* Estilo general del footer */
+/*---------------------------------------------------------------------------------------FOOTER----------------*/
 footer {
-  background-color:rgba(24, 135, 226, 0.966);/* Color de fondo del footer */
-  color: #f8f2f2; /* Color del texto en el footer */
-  padding: 20px; /* Espaciado interno del footer */
+  background-color: #4198c0;
+  color: #fff;
+  padding: 20px 0;
+
+  margin-top: 50px;
 }
 
-/* Estilo del contenedor del footer */
-.conteiner_footer {
-  text-align: center; /* Centrar el texto dentro del contenedor */
+.container-footer{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
 }
 
-/* Estilo del texto de derechos reservados */
-.conteiner_footer p {
-  font-size: 14px; /* Tamaño de fuente del texto */
-  margin: 0; /* Eliminar márgenes predeterminados */
+.footer-section {
+  flex: 1;
+  margin-right: 20px;
 }
 
-/* Agregar un efecto de hover al texto si lo deseas */
-.conteiner_footer p:hover {
-  color: #00eeff; /* Cambiar el color del texto al pasar el mouse sobre él */
+.footer-section h2 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+}
+
+.footer-links li {
+  list-style-type: none;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer-social a:hover {
+  color: #ccc;
+}
+
+.subscribe-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 5px;
+  flex: 1;
+  border: none;
+  border-radius: 3px;
+}
+
+.subscribe-form input[type="submit"] {
+  background-color: #044461;
+  color: #fff;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.subscribe-form input[type="submit"]:hover {
+  background-color: #044461;
+}
+
+.copyright {
+  margin-top: 20px;
+  border-top: 1px solid #fff;
+  padding-top: 10px;
 }
