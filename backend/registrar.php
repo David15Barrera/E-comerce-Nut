@@ -27,7 +27,7 @@ $genero = $_POST['genero'];
 
 // Establecer valores predeterminados
 $estatus = "Activado";
-$rol = "Usuario";
+$rol = "usuario";
 $dateRegistro = date("Y-m-d"); // Fecha y hora actual en formato MySQL
 
 // Insertar datos en la tabla USUARIO

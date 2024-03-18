@@ -35,13 +35,18 @@ document.getElementById('Login').addEventListener('submit', function(event) {
     formData.append('password', password);
 
     var xhr = new XMLHttpRequest();
+
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 if (xhr.responseText === 'success_usuario') {
                     window.location.href = '../views/comun/inicioComun.html';
-                } else if (xhr.responseText === 'success_administrador') {
+                    document.getElementById('correo').value="";
+                    document.getElementById('password').value="";
+                    } else if (xhr.responseText === 'success_administrador') {
                     window.location.href = '../views/admin/inicioAdmin.html';
+                    document.getElementById('correo').value="";
+                    document.getElementById('password').value="";
                 } else {
                     document.getElementById('mensaje').innerHTML = 'Credenciales inválidas';
                 }
