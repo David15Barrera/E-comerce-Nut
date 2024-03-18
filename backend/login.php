@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Login exitoso
         $row = $result->fetch_assoc();
         $_SESSION['correo'] = $correo;
-        $_SESSION['nombre_usuario'] = $row['nombre']; 
+        $_SESSION['estatus'] = $row['estatus']; 
         // Verificar el rol del usuario y redirigir
         if ($row['rol'] == 'usuario') {
             echo "success_usuario";
