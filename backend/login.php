@@ -30,6 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         $_SESSION['correo'] = $correo;
         $_SESSION['estatus'] = $row['estatus']; 
+    
+        // Obtener el nombre y apellido del usuario desde la tabla USUARIODATOS
+        $userDataSql = "SELECT name, lastName FROM USUARIODATOS WHERE userId = ".$row['idUser'];
+        $userDataResult = $conn->query($userDataSql);
+        if ($userDataResult->num_rows == 1) {
+            $userData = $userDataResult->fetch_assoc();
+            $_SESSION['nombreUsuario'] = $userData['name'];
+            $_SESSION['apellidoUsuario'] = $userData['lastName'];
+        }
+    
         // Verificar el rol del usuario y redirigir
         if ($row['rol'] == 'usuario') {
             echo "success_usuario";
@@ -40,7 +50,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Login fallido
         echo "failure";
     }
-
-    $conn->close();
 }
 ?>

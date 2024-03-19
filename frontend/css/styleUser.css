@@ -116,3 +116,53 @@ h1, p {
 .animate__fadeInUp {
     animation-name: fadeInUp;
 }
+
+.icono-usuario {
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/usuario.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+
+.icono-comprar{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/vendido.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 22px 22px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+.icono-productos{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/productos.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 20px 20px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+.icono-carrito{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/carrito.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 23px 23px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+.icono-reportes{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/reporte.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+.icono-cerrar{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/cerrar.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+.icono-autorizar{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/verificado.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}
+.icono-agregar{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/agregar.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}

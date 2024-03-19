@@ -40,11 +40,11 @@ document.getElementById('Login').addEventListener('submit', function(event) {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 if (xhr.responseText === 'success_usuario') {
-                    window.location.href = '../views/comun/inicioComun.html';
+                    window.location.href = '../views/comun/inicioComun.php';
                     document.getElementById('correo').value="";
                     document.getElementById('password').value="";
                     } else if (xhr.responseText === 'success_administrador') {
-                    window.location.href = '../views/admin/inicioAdmin.html';
+                    window.location.href = '../views/admin/inicioAdmin.php';
                     document.getElementById('correo').value="";
                     document.getElementById('password').value="";
                 } else {
