@@ -8,13 +8,30 @@
     <title>Mi Cuenta</title>
 </head>
 <body>
+<header>
+        <nav class="nav__hero">
+            <div class="container nav__container">
+                <div class="logo">
+                    <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
+                </div>
+                <div class="links">
+                    <a href="#" class="link">Productos</a>
+                    <a href="../comun/carrito.html" class="link link--active">Carrito</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <nav class="sidebar">
         <h3>nut</h3>
         <ul>
             <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
             <li><a href="#"><span class="icono-comprar">Vender</span></a></li>
-            <li><a href="#"><span class="icono-productos">Productos</span></a></li>
-            <li><a href="../comun/carrito.html"><span class="icono-carrito">Carrito</span></a></li>
+            <li><a href="#"><span class="icono-productos">Chats</span></a></li>
             <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
             <li><a href="#"><span class="icono-usuario">Mi Cuenta</span></a></li>
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
