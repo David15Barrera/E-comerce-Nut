@@ -78,7 +78,6 @@ body {
 
 h1, p {
     color: #000; /* Negro */
-    opacity: 0; /* Inicialmente, el texto estará oculto */
 }
 
 /* Animaciones */

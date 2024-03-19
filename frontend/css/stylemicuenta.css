@@ -1,11 +1,11 @@
 .container-form {
     max-width: 1000px; /* Reducir el ancho máximo del formulario */
-    margin: 25px auto; /* Centrar el formulario en la pantalla y agregar espacio arriba y abajo */
+    margin: -80px auto; /* Centrar el formulario en la pantalla y agregar espacio arriba y abajo */
     margin-left: 350px; /* Ajuste el margen izquierdo para evitar que se superponga con el nav */
     overflow: hidden; /* Para limpiar el float */
 }
 .container-form h2 {
-    margin-top: -70px; /* Agrega un espacio superior al título */
+    margin-top: 100px; /* Agrega un espacio superior al título */
     text-align: center;
 }
 

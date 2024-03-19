@@ -1,77 +1,160 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
-
-.container-car {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    margin-left: 350px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-.title-car {
-    text-align: center;
-    color: #007bff;
-    margin-top: -30px; /* Ajuste según sea necesario */
-    margin-bottom: 20px;
-}
-
-.cart {
-    display: flex;
-    justify-content: space-between;
-}
-
-.cart-items {
-    width: 70%;
-}
-
-.cart-items .cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.cart-total {
-    width: 25%;
-    padding: 20px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-}
-
-.cart-total .total {
-    margin-bottom: 20px;
-}
-
-.cart-total h3 {
-    margin-top: 0;
-    text-align: center;
-}
-
-.cart-total h4 {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 24px;
-}
-
-#checkout-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#checkout-btn:hover {
-    background-color: #004080;
-}
+    .container-car {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 5px;
+        margin-left: 350px;
+        background-color: #fff;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        position: relative;
+    }
+    
+    .title-car {
+        text-align: center;
+        color: #007bff;
+        margin-top: -10px; /* Ajuste según sea necesario */
+        margin-bottom: 20px;
+    }
+    
+    .cart {
+        display: flex;
+        flex-direction: column; 
+    }
+    .cart-items {
+        width: 70%;
+        margin-left: 250px;
+        padding-bottom: -100px;
+        height: 2px;
+        align-self: flex-start; /* Alinear el inicio del cart-items con el inicio del cart */
+        animation: fadeInLeft 0.5s ease-in-out;
+    }
+    
+    .cart-items .product {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        position: relative;
+        animation: fadeInLeft 0.5s ease-in-out;
+    }
+    
+    .cart-items .product h3 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    
+    .cart-items .product p {
+        margin: 5px 0;
+    }
+    
+    .cart-items .product .delete-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #d9534f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    
+    .cart-total {
+        width: 25%;
+        padding: 20px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        animation: fadeInRight 0.5s ease-in-out;
+    }
+    
+    .cart-Pago {
+        width: 30%; 
+        height: auto;
+        margin-bottom: 10px; 
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        animation: fadeInRight 0.5s ease-in-out;
+    }
+    .cart-Pago .payment-method {
+        margin-bottom: 20px;
+        animation: fadeInDown 0.5s ease-in-out;
+    }
+    
+    .cart-Pago .payment-method h3 {
+        margin-top: 0;
+    }
+    
+    .cart-total .total {
+        margin-bottom: 20px;
+        animation: fadeInUp 0.5s ease-in-out;
+    }
+    
+    .cart-total .total h3 {
+        margin-top: 0;
+    }
+    
+    .cart-total .total p {
+        margin: 5px 0;
+    }
+    
+    #checkout-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #0056b3;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        animation: fadeInUp 0.5s ease-in-out;
+    }
+    
+    #checkout-btn:hover {
+        background-color: #004080;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }

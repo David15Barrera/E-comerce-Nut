@@ -21,8 +21,7 @@
         </ul>
     </nav>
     <div class="container-form">
-        <h1>Mi Cuenta</h1>
-        <h2>Modificar Cuenta</h2>
+        <h2>Mi Cuenta</h2>
         <div id="message"></div>
         <div class="form-column">
             <div class="update-section">

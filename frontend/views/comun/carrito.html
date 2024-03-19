@@ -3,30 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
+    <title>Carrito</title>
     <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
     <link rel="stylesheet" href="../../css/stylecarrito.css">
 </head>
 <body>
+    <nav class="sidebar">
+        <h3>nut</h3>
+        <ul>
+            <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
+            <li><a href="#"><span class="icono-comprar">Vender</span></a></li>
+            <li><a href="#"><span class="icono-productos">Productos</span></a></li>
+            <li><a href="../comun/carrito.html"><span class="icono-carrito">Carrito</span></a></li>
+            <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
+            <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>
+            <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
+        </ul>
+    </nav>
+
     <div class="container-car">
         <h1 class="title-car">Productos escogidos</h1>
         <div class="cart">
             <div class="cart-items">
-                <!-- Aquí se mostrarán los productos escogidos -->
+                <!-- Detalles de los productos -->
+                <div class="product">
+                    <h3>Producto 1</h3>
+                    <p>Descripción del producto 1</p>
+                    <p>Precio unitario: Q50.00</p>
+                    <p>Cantidad: 2</p>
+                    <p>Total: Q100.00</p>
+                    <button class="delete-btn">Eliminar</button>
+                </div>
+                <div class="product">
+                    <h3>Producto 2</h3>
+                    <p>Descripción del producto 2</p>
+                    <p>Precio unitario: Q30.00</p>
+                    <p>Cantidad: 3</p>
+                    <p>Total: Q90.00</p>
+                    <button class="delete-btn">Eliminar</button>
+                </div>
+                <div class="product">
+                    <h3>Producto 3</h3>
+                    <p>Descripción del producto 2</p>
+                    <p>Precio unitario: Q30.00</p>
+                    <p>Cantidad: 3</p>
+                    <p>Total: Q90.00</p>
+                    <button class="delete-btn">Eliminar</button>
+                </div>
+                <div class="product">
+                    <h3>Producto 3</h3>
+                    <p>Descripción del producto 2</p>
+                    <p>Precio unitario: Q30.00</p>
+                    <p>Cantidad: 3</p>
+                    <p>Total: Q90.00</p>
+                    <button class="delete-btn">Eliminar</button>
+                </div>
+            </div>
+            </div>
+            <div class="cart-Pago">
+                <!-- Método de pago -->
+                <div class="payment-method">
+                    <h3>Método de pago:</h3>
+                    <label><input type="radio" name="payment" value="money"> Dinero</label>
+                    <label><input type="radio" name="payment" value="points"> Puntos</label>
+                </div>
             </div>
             <div class="cart-total">
+                <!-- Total carrito y total puntos -->
                 <div class="total">
-                    <h3>Total carrito</h3>
-                    <h4 id="total-price">Q75.00</h4>
+                    <h3>Total:</h3>
+                    <p id="total-price">Q190.00</p>
                 </div>
                 <div class="total">
-                    <h3>Total Puntos</h3>
-                    <h4 id="total-points">100</h4>
+                    <h3>Total puntos:</h3>
+                    <p id="total-points">300</p>
                 </div>
                 <button id="checkout-btn">Finalizar</button>
+                <button id="checkout-btn">Cancelar Compra</button>
             </div>
         </div>
     </div>
-    <script src="../../js/carrito.js"></script>
+    <script src="../../js/.js"></script>
 </body>
 </html>
