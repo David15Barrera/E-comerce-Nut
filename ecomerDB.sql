@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS USUARIO(
     password VARCHAR(100) NOT NULL,
     rol VARCHAR(100) NOT NULL,
     estatus VARCHAR(75),
-    PRIMARY KEY(idUser)
+    PRIMARY KEY(idUser) 
 );
 
 CREATE TABLE IF NOT EXISTS USUARIODATOS(
@@ -24,6 +24,15 @@ CREATE TABLE IF NOT EXISTS USUARIODATOS(
     dateRegistro VARCHAR(50),
     PRIMARY KEY(idUserdatos),
     FOREIGN KEY(userId) REFERENCES USUARIO(idUser)
+);
+
+CREATE TABLE IF NOT EXISTS PUNTOS (
+    idPuntos INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
+    Monto INT,
+    fechaoObtencion DATETIME,
+	PRIMARY KEY (idPuntos),
+    FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
 
 CREATE TABLE IF NOT EXISTS PUBLICACIONES(
@@ -59,28 +68,31 @@ CREATE TABLE IF NOT EXISTS CHATS(
 	FOREIGN KEY (receptor) REFERENCES USUARIO(idUser)
 );
 
-CREATE TABLE IF NOT EXISTS TRANSACCIONES (
+
+CREATE TABLE IF NOT EXISTS VENTAS (
+    idCarrito INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
+    vendeid INT UNSIGNED,
+    cantidad INT,
+    dateRegistro DATE,
+    timeRegistro TIME,
+    total DECIMAL(10, 2),
+    estado VARCHAR(100),
+    PRIMARY KEY(idCarrito),
+    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(vendeid) REFERENCES USUARIO(idUser)
+);
+
+CREATE TABLE IF NOT EXISTS DETALLETRANSACCIONES (
     idTransaccion INT AUTO_INCREMENT,
-    vendedorId INT UNSIGNED,
-    compradorId INT UNSIGNED,
+    carritoid INT UNSIGNED,
     publicacionesId INT,
-    Monto DECIMAL(10, 2),
+    montoUnitario DECIMAL(10, 2),
     moneda ENUM('sistema','local'),
     dateTransaccion DATETIME,
     PRIMARY KEY (idTransaccion),
-    FOREIGN KEY (vendedorId) REFERENCES USUARIO(idUser),
-    FOREIGN KEY (compradorId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY (carritoid) REFERENCES CARRITO(idCarrito),
     FOREIGN KEY (publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
-);
-
-CREATE TABLE IF NOT EXISTS CARRITO (
-    idCarrito INT AUTO_INCREMENT,
-    userId INT UNSIGNED,
-    publicacionesId INT,
-    cantidad INT,
-    PRIMARY KEY(idCarrito),
-    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
-    FOREIGN KEY(publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
 
@@ -94,17 +106,7 @@ CREATE TABLE CREDITOS (
     FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
 
-CREATE TABLE IF NOT EXISTS VOLUNTARIADOS (
-    idVoluntariado INT AUTO_INCREMENT,
-    userId INT UNSIGNED,
-    publicacionesId INT,
-    PRIMARY KEY(idVoluntariado),
-    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
-    FOREIGN KEY(publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
-);
-
-
-CREATE TABLE REPORTES (
+    CREATE TABLE REPORTES (
     idReporte INT AUTO_INCREMENT,
     userReportadoId INT UNSIGNED,
     userReportadorId INT UNSIGNED,
