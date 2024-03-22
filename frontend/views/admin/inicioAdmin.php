@@ -20,6 +20,7 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
                     <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
                 </div>
                 <div class="links">
+                    <a href="../admin/inicioAdmin.php" class="link">Cuenta</a>
                     <a href="#" class="link">Productos</a>
                 </div>
             </div>
