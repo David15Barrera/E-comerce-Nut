@@ -68,30 +68,39 @@ CREATE TABLE IF NOT EXISTS CHATS(
 	FOREIGN KEY (receptor) REFERENCES USUARIO(idUser)
 );
 
-
-CREATE TABLE IF NOT EXISTS VENTAS (
+CREATE TABLE IF NOT EXISTS CARRITO(
     idCarrito INT AUTO_INCREMENT,
     userId INT UNSIGNED,
-    vendeid INT UNSIGNED,
+    publicacionesId INT,
+    cantidad INT,
+    totalUnitario DECIMAL(10, 2),    
+    PRIMARY KEY(idCarrito),
+	FOREIGN KEY(publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones),
+    FOREIGN KEY(vendeid) REFERENCES USUARIO(idUser)
+);
+
+CREATE TABLE IF NOT EXISTS VENTAS (
+    idventas INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
     cantidad INT,
     dateRegistro DATE,
     timeRegistro TIME,
     total DECIMAL(10, 2),
     estado VARCHAR(100),
-    PRIMARY KEY(idCarrito),
-    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
-    FOREIGN KEY(vendeid) REFERENCES USUARIO(idUser)
+    PRIMARY KEY(idventas),
+    FOREIGN KEY(userId) REFERENCES USUARIO(idUser)
 );
 
 CREATE TABLE IF NOT EXISTS DETALLETRANSACCIONES (
     idTransaccion INT AUTO_INCREMENT,
-    carritoid INT UNSIGNED,
+    ventasid INT UNSIGNED,
     publicacionesId INT,
     montoUnitario DECIMAL(10, 2),
     moneda ENUM('sistema','local'),
-    dateTransaccion DATETIME,
+    direccionVenta VARCHAR(150),
+    pais VARCHAR(150),
     PRIMARY KEY (idTransaccion),
-    FOREIGN KEY (carritoid) REFERENCES CARRITO(idCarrito),
+    FOREIGN KEY (ventasid) REFERENCES VENTAS(idventas),
     FOREIGN KEY (publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
@@ -106,7 +115,7 @@ CREATE TABLE CREDITOS (
     FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
 
-    CREATE TABLE REPORTES (
+CREATE TABLE REPORTES (
     idReporte INT AUTO_INCREMENT,
     userReportadoId INT UNSIGNED,
     userReportadorId INT UNSIGNED,
@@ -122,14 +131,12 @@ CREATE TABLE CREDITOS (
 CREATE TABLE VALORACIONES (
     idValoraciones INT AUTO_INCREMENT,
     userEvaluadorId INT UNSIGNED,
-    userEvaluadoId INT UNSIGNED,
     publicacionId INT,
     puntuacion INT,
     comentario TEXT,
     dateValoracion DATETIME,
     PRIMARY KEY(idValoraciones),
     FOREIGN KEY(userEvaluadorId) REFERENCES USUARIO(idUser),
-    FOREIGN KEY(userEvaluadoId) REFERENCES USUARIO(idUser),
     FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
     
