@@ -38,74 +38,76 @@
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>
-    <div class="container-form">
-        <h2>Mi Cuenta</h2>
-        <div id="message"></div>
-        <div class="form-column">
-            <div class="update-section">
-                <h3>Actualizar Datos</h3>
-                <form id="updateForm">
-                    <div>
-                        <label for="name">Correo:</label>
-                        <input type="text" id="name" name="name">
-                    </div>
-                    <div>
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" name="name">
-                    </div>
-                    <div>
-                        <label for="lastName">Apellido:</label>
-                        <input type="text" id="lastName" name="lastName">
-                    </div>
-                    <div>
-                        <label for="dpi">DPI:</label>
-                        <input type="text" id="dpi" name="dpi" maxlength="13" inputmode="numeric" pattern="[0-9]{13}" placeholder="Ingrese su DPI (13 dígitos)" required>
-                    </div>
-                    <div>
-                        <label for="nit">NIT:</label>
-                        <input type="text" id="nit" name="nit">
-                    </div>
-                    <div>
-                        <label for="direccion">Dirección:</label>
-                        <input type="text" id="direccion" name="direccion">
-                    </div>
-                    <div>
-                        <label for="telefono">Teléfono:</label>
-                        <input type="text" id="telefono" name="telefono">
-                    </div>
-                    <div>
-                        <label for="genero">Género:</label>
-                        <select id="genero" name="genero">
-                            <option value="Masculino">Masculino</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Femenino</option>
-                        </select>
-                    </div>
-                    <button type="submit">Actualizar Datos</button>
-                </form>
+    <div class="container-cuenta">
+        <div class="info-box">
+            <h2>Información de Usuario</h2>
+            <div class="user-details">
+                <div class="user-name">Nombre Apellido</div>
+                <div class="user-role">Rol del Usuario</div>
+                <div class="user-info">
+                    <p>DPI: xxxxxxxxx</p>
+                    <p>NIT: xxxxxxxxx</p>
+                    <p>Dirección: Dirección del Usuario</p>
+                    <p>Teléfono: xxxxxxxxx</p>
+                    <p>Género: Género del Usuario</p>
+                    <p>Correo: correo@usuario.com</p>
+                    <p>Fecha de Registro: dd/mm/yyyy</p>
+                </div>
             </div>
         </div>
-        <div class="form-column">
-            <div class="update-section">
-                <h3>Actualizar Contraseña</h3>
-                <form id="updatePasswordForm">
-                    <div>
-                        <label for="currentPassword">Contraseña Actual:</label>
-                        <input type="password" id="currentPassword" name="currentPassword">
+        <div class="edit-box">
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div>
-                        <label for="newPassword">Nueva Contraseña:</label>
-                        <input type="password" id="newPassword" name="newPassword">
+                    <div class="input-field">
+                        <label for="lastname">Apellido:</label>
+                        <input type="text" id="lastname" name="lastname" required>
                     </div>
-                    <div>
-                        <label for="confirmPassword">Confirmar Nueva Contraseña:</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword">
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="dpi">  DPI:</label>
+                        <input type="text" id="dpi" name="dpi" required>
                     </div>
-                    <button type="submit">Actualizar Contraseña</button>
-                </form>
-            </div>
+                    <div class="input-field">
+                        <label for="nit">  NIT:</label>
+                        <input type="text" id="nit" name="nit" required>
+                    </div>
+                </div>
+                 <div class="input-group">
+                    <div class="input-field">
+                        <label for="gender">Género:</label>
+                        <input type="text" id="gender" name="gender" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="phone">Celular:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                 </div>   
+                <div class="input-field">
+                    <label for="address">Dirección:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                    <div class="input-field">
+                    <label for="email">Correo:</label>
+                    <input type="email" id="email" name="email" required>
+                    </div>
+                <div class="input-group">
+                    <div class="input-field">
+                    <label for="email">Confirmar Contraseña:</label>
+                    <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-field">
+                    <label for="email">Contraseña:</label>
+                    <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+                <button type="submit">Guardar Cambios</button>
+            </form>
         </div>
     </div>
-    <script src="../../js/update.js"></script>
-</body>
+</body></body>
 </html>

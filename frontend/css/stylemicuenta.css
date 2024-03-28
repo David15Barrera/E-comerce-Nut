@@ -1,64 +1,95 @@
-.container-form {
-    max-width: 1000px; /* Reducir el ancho máximo del formulario */
-    margin: -80px auto; /* Centrar el formulario en la pantalla y agregar espacio arriba y abajo */
-    margin-left: 350px; /* Ajuste el margen izquierdo para evitar que se superponga con el nav */
-    overflow: hidden; /* Para limpiar el float */
-}
-.container-form h2 {
-    margin-top: 100px; /* Agrega un espacio superior al título */
-    text-align: center;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.update-section {
-    width: calc(50% - 20px); /* 50% del ancho y resto del margen */
-    float: left; /* Flota a la izquierda */
-    margin-right: 50px; /* Espacio entre los formularios */
+.container-cuenta {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 40px auto;
+    max-width: 900px;
+    margin-right: 50px;
+}
+
+.info-box, .edit-box {
+    width: 45%;
     padding: 20px;
-    box-sizing: border-box; /* Incluir el relleno en el ancho */
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.update-section:last-child {
-    margin-right: 0; /* Eliminar el margen derecho del último formulario */
+.info-box {
+    background-color: #3498db;
+    color: #fff;
+    height: 428px;
 }
 
-.update-section h3 {
-    margin-top: 0;
+.edit-box {
+    background-color: #fff;
+    color: #333;
+    height: 428px;
+    width: fit-content;
 }
 
-.update-section label {
-    display: block;
+.edit-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-box {
+    display: flex;
+}
+
+.edit-box .input-field {
+    flex: 1;
+    margin-right: 10px;
+}
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.input-field {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-field label {
     margin-bottom: 5px;
 }
 
-.update-section input[type="text"],
-.update-section input[type="password"],
-.update-section select {
-    width: calc(100% - 12px); /* Ajustar el ancho de los campos de entrada */
+.input-field input {
+    width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
-.update-section button {
-    padding: 10px 20px;
-    background-color: #007bff;
+.edit-box label {
+    margin-top: 10px;
+}
+
+.input-field input[type="text"],
+.input-field input[type="email"],
+.input-field input[type="tel"] {
+    width: 90%;
+}
+
+
+.edit-box button {
+    padding: 10px;
+    margin-top: -5px;
+    background-color: #3498db;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-.update-section button:hover {
-    background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-    .update-section {
-        width: 100%; /* Para una sola columna en dispositivos móviles */
-        margin-right: 0; /* Eliminar el margen entre formularios */
-        margin-bottom: 20px; /* Espacio entre formularios en dispositivos móviles */
-    }
+.edit-box button:hover {
+    background-color: #2980b9;
 }
