@@ -42,18 +42,18 @@
         <div class="info-box">
             <h2>Información de Usuario</h2>
             <div class="user-details">
-                <div class="user-name">Nombre Apellido</div>
-                <div class="user-role">Rol del Usuario</div>
-                <div class="user-info">
-                    <p>DPI: xxxxxxxxx</p>
-                    <p>NIT: xxxxxxxxx</p>
-                    <p>Dirección: Dirección del Usuario</p>
-                    <p>Teléfono: xxxxxxxxx</p>
-                    <p>Género: Género del Usuario</p>
-                    <p>Correo: correo@usuario.com</p>
-                    <p>Fecha de Registro: dd/mm/yyyy</p>
-                </div>
+            <div class="user-name" id="nombreUsuario"></div>
+            <div class="user-role" id="rolUsuario"></div>
+            <div class="user-info">
+                    <p id="correoUsuario"></p>
+                    <p id="dpiUsuario"></p>
+                    <p id="nitUsuario"></p>
+                    <p id="addressUsuario"></p>
+                    <p id="phoneUsuario"></p>
+                    <p id="genderUsuario"></p>
+                    <p id="fechaRegistro"></p>
             </div>
+        </div>
         </div>
         <div class="edit-box">
             <form action="#" method="POST">
@@ -92,8 +92,8 @@
                     <input type="text" id="address" name="address" required>
                 </div>
                     <div class="input-field">
-                    <label for="email">Correo:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="correoUsuario">Correo:</label>
+                    <input type="email" id="addresUsuario" name="correoUsuario" required>
                     </div>
                 <div class="input-group">
                     <div class="input-field">
@@ -110,4 +110,5 @@
         </div>
     </div>
 </body></body>
+<script src="../../js/update.js"></script>
 </html>
