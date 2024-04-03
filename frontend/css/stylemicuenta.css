@@ -68,12 +68,18 @@ body {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-
+.input-field select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
 .edit-box label {
     margin-top: 10px;
 }
 
 .input-field input[type="text"],
+.input-field input[type="password"],
 .input-field input[type="email"],
 .input-field input[type="tel"] {
     width: 90%;
