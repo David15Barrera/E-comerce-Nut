@@ -15,29 +15,29 @@
                     <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
                 </div>
                 <div class="links">
-                    <a href="../comun/inicioComun.php" class="link">Cuenta</a>
+                    <a href="../admin/inicioAdmin.php" class="link">Cuenta</a>
                     <a href="#" class="link">Productos</a>
-                    <a href="../comun/carrito.html" class="link link--active">Carrito</a>
                 </div>
             </div>
         </nav>
     </header>
     <br>
     <br>
-    <br>
-    <br>
 
     <nav class="sidebar">
-        <h3>nut</h3>
         <ul>
-            <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
-            <li><a href="#"><span class="icono-comprar">Vender</span></a></li>
-            <li><a href="#"><span class="icono-productos">Chats</span></a></li>
-            <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
-            <li><a href="#"><span class="icono-usuario">Mi Cuenta</span></a></li>
+            <br>
+            <br>
+            <li><a href="../admin/inicioAdmin.php" class="active"><span>Inicio</span></a></li>
+            <li><a href="#"><span class="icono-agregar">Agregar Usuario</span></a></li>
+            <li><a href="#"><span class="icono-autorizar">Autorizar</span></a></li>
+            <li><a href="#"><span class="icono-reportes">Reporte Usuario</span></a></li>
+            <li><a href="#"><span class="icono-reportes">Reportes</span></a></li>
+            <li><a href="../admin/micuentaA.php"><span class="icono-usuario">Mi Cuenta</span></a></li> 
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>
+<br>
     <div class="container-cuenta">
         <div class="info-box">
             <h2>Información de Usuario</h2>

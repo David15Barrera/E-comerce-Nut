@@ -34,11 +34,11 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
             <br>
             <br>
             <li><a href="#" class="active"><span>Inicio</span></a></li>
-            <li><a href="#"><span class="icono-agregar">Agregar Usuario</span></a></li>
+            <li><a href="../admin/AgregarUser.html"><span class="icono-agregar">Agregar Usuario</span></a></li>
             <li><a href="#"><span class="icono-autorizar">Autorizar</span></a></li>
             <li><a href="#"><span class="icono-reportes">Reporte Usuario</span></a></li>
             <li><a href="#"><span class="icono-reportes">Reportes</span></a></li>
-            <li><a href="#"><span class="icono-usuario">Mi Cuenta</span></a></li> 
+            <li><a href="../admin/micuentaA.php"><span class="icono-usuario">Mi Cuenta</span></a></li> 
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>
