@@ -27,3 +27,35 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.log("Error al obtener la información del usuario:", error));
 });
+
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault(); // Evitar que el formulario se envíe automáticamente
+
+    // Validar que las contraseñas coincidan
+    // Obtener los datos del formulario
+    const formData = new FormData(this);
+
+    const password = formData.get('password');
+    const confirmPassword = formData.get('confirmPassword');
+    if (password === '' && confirmPassword === '') {
+        // Si los campos de contraseña están vacíos, eliminarlos del objeto FormData
+        formData.delete('password');
+        formData.delete('confirmPassword');
+    } else if (password !== confirmPassword) {
+        alert("Las contraseñas no coinciden");
+        return;
+    }
+ 
+    // Enviar los datos del formulario al servidor usando fetch
+    fetch("../../../backend/guardarEditarUser.php", {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data); // Mostrar la respuesta del servidor en la consola
+        alert("Datos Modificados");
+        window.location.reload();
+    })
+    .catch(error => console.error("Error al enviar los datos del formulario:", error));
+});

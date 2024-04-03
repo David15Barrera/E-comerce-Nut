@@ -78,9 +78,13 @@
                     </div>
                 </div>
                  <div class="input-group">
-                    <div class="input-field">
+                 <div class="input-field">
                         <label for="gender">Género:</label>
-                        <input type="text" id="gender" name="gender" required>
+                        <select id="gender" name="gender">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
                     </div>
                     <div class="input-field">
                         <label for="phone">Celular:</label>
@@ -93,16 +97,16 @@
                 </div>
                     <div class="input-field">
                     <label for="correoUsuario">Correo:</label>
-                    <input type="email" id="addresUsuario" name="correoUsuario" required>
+                    <input type="text" id="addresUsuario" name="correoUsuario" required>
                     </div>
                 <div class="input-group">
                     <div class="input-field">
-                    <label for="email">Confirmar Contraseña:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="password">Nueva Contraseña:</label>
+                    <input type="password" id="password" name="password">
                     </div>
                     <div class="input-field">
-                    <label for="email">Contraseña:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="confirmPassword">Confirmar Contraseña:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
                     </div>
                 </div>
                 <button type="submit">Guardar Cambios</button>
