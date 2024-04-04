@@ -36,7 +36,7 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
         <h3>nut</h3>
         <ul>
             <li><a href="#" class="active"><span>Inicio</span></a></li>
-            <li><a href="#"><span class="icono-comprar">Vender</span></a></li>
+            <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
             <li><a href="#"><span class="icono-productos">Chats</span></a></li>
             <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
             <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>

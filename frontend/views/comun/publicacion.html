@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
+    <link rel="stylesheet" href="../../css/stykePublicaciones.css" type="text/css">
+
+    <title>InicioUsuario</title>
+</head>
+<body>
+<header>
+        <nav class="nav__hero">
+            <div class="container nav__container">
+                <div class="logo">
+                    <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
+                </div>
+                <div class="links">
+                    <a href="../comun/inicioComun.php" class="link">Cuenta</a>
+                    <a href="#" class="link">Productos</a>
+                    <a href="../comun/carrito.html" class="link link--active">Carrito</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <nav class="sidebar">
+        <h3>nut</h3>
+        <ul>
+            <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
+            <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
+            <li><a href="#"><span class="icono-productos">Chats</span></a></li>
+            <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
+            <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>
+            <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
+        </ul>
+    </nav>
+
+
+    <div class="content">
+        <div class="container-publicacion">
+            <h1>Creación de Publicación</h1>
+            <form action="../../../backend/registroPublicacion.php" method="POST" enctype="multipart/form-data" class="form-grid">
+                <div class="left">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo">Tipo:</label>
+                        <select id="tipo" name="tipo" onchange="updatePrecios()" required>
+                            <option value="">Selecciona un Tipo</option>
+                            <option value="Productos">Productos</option>
+                            <option value="Servicio">Servicio</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="Electronica">Electronica</option>
+                            <option value="Ropa">Ropa</option>
+                            <option value="Calzado">Calzado</option>
+                            <option value="Electrodomestico">Electrodomestico</option>
+                            <option value="Comida">Comida</option>
+                            <option value="Muebles">Muebles</option>
+                            <option value="Juguetes">Juguetes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="precioSistema">Precio (Q):</label>
+                        <input type="number" id="precioSistema" name="precioSistema" oninput="convertirPrecioNutPoints()" readonly>
+                        <span class="conversion-info"> Un Quetzal (1Q) equivale a 10 NutPoints</span>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="precioLocal">Precio local (NUTPoints):</label>
+                        <input type="number" id="precioLocal" name="precioLocal" oninput="convertirPrecioQuetzales()" readonly>
+                    </div>
+                 
+        
+                    <div class="form-group">
+                        <label for="cantidadDisponible">Cantidad disponible:</label>
+                        <input type="number" id="cantidadDisponible" name="cantidadDisponible" required>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="ubicacion">Ubicación:</label>
+                        <input type="text" id="ubicacion" name="ubicacion" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <button type="submit">Crear Publicación</button>
+                    </div>
+                </div>
+    
+                <div class="right">
+                    <div id="imagen-preview-container">
+                        <div class="form-group">
+                            <img id="imagen-preview" src="#" alt="Vista previa de la imagen" style="display: none; max-height: 200px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">Imagen:</label>
+                        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
+    
+</body>
+<script src="../../js/Usuario/publicaciones.js"></script>
+</html>

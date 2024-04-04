@@ -29,7 +29,7 @@
             <br>
             <br>
             <li><a href="../admin/inicioAdmin.php" class="active"><span>Inicio</span></a></li>
-            <li><a href="#"><span class="icono-agregar">Agregar Usuario</span></a></li>
+            <li><a href="../admin/AgregarUser.html"><span class="icono-agregar">Agregar Usuario</span></a></li>
             <li><a href="#"><span class="icono-autorizar">Autorizar</span></a></li>
             <li><a href="#"><span class="icono-reportes">Reporte Usuario</span></a></li>
             <li><a href="#"><span class="icono-reportes">Reportes</span></a></li>

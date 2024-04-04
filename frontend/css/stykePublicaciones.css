@@ -1,0 +1,78 @@
+.container-publicacion {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los elementos arriba */
+}
+
+.left, .right {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+#imagen-preview-container {
+    max-width: 100%;
+    overflow-x: auto; /* Hace que la imagen se desborde hacia la derecha si es demasiado ancha */
+    display: flex;
+    justify-content: flex-end; /* Alinea la imagen a la derecha */
+}
+
+#imagen-preview {
+    max-width: 500%; /* Mantiene el tamaño de la imagen dentro del contenedor */
+    max-height: 400px; /* Establece la altura máxima para evitar que la imagen sea demasiado alta */
+    display: block; /* Hace que la imagen no afecte a los elementos en línea */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea,
+button[type="submit"] {
+    width: calc(100% - 20px); /* Calcula el ancho para dejar espacio para el borde y el relleno */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Considera el relleno y el borde dentro del ancho */
+}
+
+textarea {
+    height: 100px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.conversion-info {
+    font-size: 0.8em; /* Tamaño de letra más pequeño para el mensaje */
+    color: #888; /* Color de texto gris para el mensaje */
+    margin-top: 5px; /* Margen superior para separarlo ligeramente del campo de entrada */
+}
