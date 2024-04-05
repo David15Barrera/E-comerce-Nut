@@ -72,6 +72,7 @@
                             <option value="Calzado">Calzado</option>
                             <option value="Electrodomestico">Electrodomestico</option>
                             <option value="Comida">Comida</option>
+                            <option value="Hogar">Hogar</option>
                             <option value="Muebles">Muebles</option>
                             <option value="Juguetes">Juguetes</option>
                         </select>
@@ -95,10 +96,32 @@
                     </div>
         
                     <div class="form-group">
-                        <label for="ubicacion">Ubicación:</label>
-                        <input type="text" id="ubicacion" name="ubicacion" required>
+                        <label for="pais">País:</label>
+                        <select id="pais" name="pais" required onchange="cargarCiudades()">
+                            <option value="">Selecciona un País</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Canada">Canadá</option>
+                            <option value="Mexico">México</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Espana">España</option>
+                            <option value="Japon">Japón</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Panama">Panamá</option>
+                        </select>
                     </div>
-    
+                    
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <select id="ciudad" name="ciudad" required>
+                            <option value="">Selecciona una Ciudad</option>
+                            <!-- Las ciudades se cargarán dinámicamente aquí -->
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <button type="submit">Crear Publicación</button>
                     </div>

@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipo = $_POST['tipo'];
     $categoria = $_POST['categoria'];
     $precioSistema = $_POST['precioSistema'];
-    $precioSistema = $_POST['precioSistema'];
     $precioLocal = $_POST['precioLocal'];
     $cantidadDisponible = $_POST['cantidadDisponible'];
-    $ubicacion = $_POST['ubicacion'];
-
+    $pais = $_POST['pais'];
+    $ciudad = $_POST['ciudad'];
+    
     // Manejo de la imagen
     if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
         $imagen_temporal = $_FILES['imagen']['tmp_name'];
@@ -34,31 +34,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Incluir archivo de configuración de la base de datos
             include_once "connectionpdo.php"; // Asegúrate de cambiar esto al nombre correcto de tu archivo de configuración
 
-            // Insertar datos en la base de datos
-            $sql = "INSERT INTO PUBLICACIONES (userId, Tipo, titulo, Descripcion, categoria, estado, precioSistema, precioLocal, cantidadDisponible, ubicacion, imagen, FechaPublicacion, FechaExpiracion, puntos) 
-                    VALUES ((SELECT idUser FROM USUARIO WHERE email = :correo_usuario), :Tipo, :titulo, :Descripcion, :categoria, :estado, :precioSistema, :precioLocal, :cantidadDisponible, :ubicacion, :imagen, NOW(), NOW() + INTERVAL 1 MONTH, :puntos)";
+            // Buscar si la ubicación ya existe en la tabla de ubicaciones
+            $sql_buscar_ubicacion = "SELECT idUbicacion FROM UBICACION WHERE pais = :pais AND ciudad = :ciudad";
+            $stmt_buscar_ubicacion = $pdo->prepare($sql_buscar_ubicacion);
+            $stmt_buscar_ubicacion->bindParam(':pais', $pais);
+            $stmt_buscar_ubicacion->bindParam(':ciudad', $ciudad);
+            $stmt_buscar_ubicacion->execute();
+            
+            $fila_ubicacion = $stmt_buscar_ubicacion->fetch(PDO::FETCH_ASSOC);
+            
+            if ($fila_ubicacion) {
+                // Si la ubicación ya existe, obtenemos su ID
+                $idUbicacion = $fila_ubicacion['idUbicacion'];
+            } else {
+                // Si la ubicación no existe, la insertamos y obtenemos su ID
+                $sql_insertar_ubicacion = "INSERT INTO UBICACION (pais, ciudad) VALUES (:pais, :ciudad)";
+                $stmt_insertar_ubicacion = $pdo->prepare($sql_insertar_ubicacion);
+                $stmt_insertar_ubicacion->bindParam(':pais', $pais);
+                $stmt_insertar_ubicacion->bindParam(':ciudad', $ciudad);
+                $stmt_insertar_ubicacion->execute();
+                
+                $idUbicacion = $pdo->lastInsertId();
+            }
 
-            // Preparar la declaración
+            // Insertar datos en la tabla de publicaciones
+            $sql = "INSERT INTO PUBLICACIONES (userId, idUbicacion, Tipo, titulo, Descripcion, categoria, estado, Imagen, precioSistema, precioLocal, cantidadDisponible, FechaPublicacion, FechaExpiracion, puntos) 
+                    VALUES ((SELECT idUser FROM USUARIO WHERE email = :correo_usuario), :idUbicacion, :Tipo, :titulo, :Descripcion, :categoria, :estado, :imagen, :precioSistema, :precioLocal, :cantidadDisponible, NOW(), NOW() + INTERVAL 1 MONTH, :puntos)";
+            
             $stmt = $pdo->prepare($sql);
-
-            // Enlazar parámetros
             $stmt->bindParam(':correo_usuario', $correo_usuario);
+            $stmt->bindParam(':idUbicacion', $idUbicacion);
             $stmt->bindParam(':Tipo', $tipo);
             $stmt->bindParam(':titulo', $titulo);
             $stmt->bindParam(':Descripcion', $descripcion);
             $stmt->bindParam(':categoria', $categoria);
             $stmt->bindValue(':estado', 'PENDIENTE'); // Estado predeterminado
+            $stmt->bindParam(':imagen', $ruta_imagen);
             $stmt->bindParam(':precioSistema', $precioSistema);
             $stmt->bindParam(':precioLocal', $precioLocal);
             $stmt->bindParam(':cantidadDisponible', $cantidadDisponible);
-            $stmt->bindParam(':ubicacion', $ubicacion);
-            $stmt->bindParam(':imagen', $ruta_imagen);
             $stmt->bindValue(':puntos', ($precioSistema * 10)); // Convertir precioSistema a puntos (1 Quetzal = 10 NutPoints)
  
             // Ejecutar la declaración
             if ($stmt->execute()) {
+                 // Mostrar alerta de éxito
                 // Redireccionar después de la inserción exitosa
                 echo "<script>window.location.href = '../frontend/views/comun/publicacion.html';</script>";
+                echo "<script>alert('¡El producto se creó con éxito!');</script>";
                 exit();
             } else {
                 // Mostrar mensaje de error si la inserción falla
@@ -76,6 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Si no se ha enviado el formulario, redirigir a alguna página apropiada
-    echo "No funciono";
+    echo "No funcionó";
 }
 ?>

@@ -35,9 +35,17 @@ CREATE TABLE IF NOT EXISTS PUNTOS (
     FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
 
-CREATE TABLE IF NOT EXISTS PUBLICACIONES(
+CREATE TABLE IF NOT EXISTS UBICACION (
+    idUbicacion INT AUTO_INCREMENT,
+    pais VARCHAR(255),
+    ciudad VARCHAR(255),
+    PRIMARY KEY(idUbicacion)
+);
+
+CREATE TABLE IF NOT EXISTS PUBLICACIONES (
     idPublicaciones INT AUTO_INCREMENT,
     userId INT UNSIGNED,
+    idUbicacion INT,
     Tipo VARCHAR(250),
     titulo VARCHAR(250),
     Descripcion TEXT,
@@ -47,16 +55,16 @@ CREATE TABLE IF NOT EXISTS PUBLICACIONES(
     precioSistema DECIMAL(10, 2),
     precioLocal DECIMAL(10, 2),
     cantidadDisponible INT,
-    ubicacion VARCHAR(255),
     FechaPublicacion DATETIME,
     FechaExpiracion DATETIME,
     puntos INT,
-    PRIMARY KEY (idPublicaciones),
-    FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
+    PRIMARY KEY(idPublicaciones),
+    FOREIGN KEY (userId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY (idUbicacion) REFERENCES UBICACION(idUbicacion)
 );
 
 CREATE TABLE IF NOT EXISTS CHATS(
-	idChat INT,
+	idChat INT AUTO_INCREMENT,
 	publicacionesId INT,
 	emisor INT UNSIGNED,
 	receptor INT UNSIGNED,
@@ -68,16 +76,6 @@ CREATE TABLE IF NOT EXISTS CHATS(
 	FOREIGN KEY (receptor) REFERENCES USUARIO(idUser)
 );
 
-CREATE TABLE IF NOT EXISTS CARRITO(
-    idCarrito INT AUTO_INCREMENT,
-    userId INT UNSIGNED,
-    publicacionesId INT,
-    cantidad INT,
-    totalUnitario DECIMAL(10, 2),    
-    PRIMARY KEY(idCarrito),
-	FOREIGN KEY(publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones),
-    FOREIGN KEY(vendeid) REFERENCES USUARIO(idUser)
-);
 
 CREATE TABLE IF NOT EXISTS VENTAS (
     idventas INT AUTO_INCREMENT,
@@ -93,7 +91,7 @@ CREATE TABLE IF NOT EXISTS VENTAS (
 
 CREATE TABLE IF NOT EXISTS DETALLETRANSACCIONES (
     idTransaccion INT AUTO_INCREMENT,
-    ventasid INT UNSIGNED,
+    ventasid INT,
     publicacionesId INT,
     montoUnitario DECIMAL(10, 2),
     moneda ENUM('sistema','local'),
@@ -139,4 +137,4 @@ CREATE TABLE VALORACIONES (
     FOREIGN KEY(userEvaluadorId) REFERENCES USUARIO(idUser),
     FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
-    
+
