@@ -22,7 +22,7 @@
                 img.alt = publicacion.titulo;
 
                 img.addEventListener('click', () => {
-                    window.location.href = `VerProduser.html?id=${publicacion.idPublicaciones}`;
+                    window.location.href = `VerProduser.php?id=${publicacion.idPublicaciones}`;
                 });
 
                 const h3 = document.createElement('h3');

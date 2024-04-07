@@ -45,3 +45,40 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el formulario de comentario
+    const formComentario = document.getElementById('form-comentario');
+
+    // Agregar un evento de escucha para el envío del formulario
+    formComentario.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
+        
+        // Obtener los datos del formulario
+        const formData = new FormData(formComentario);
+
+        // Realizar una solicitud AJAX para enviar los datos del formulario al servidor
+        fetch('../../../backend/crearComentario.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Verificar si la respuesta del servidor indica un éxito
+            if (data.success) {
+                // Redirigir al usuario a la página deseada
+                alert('Comentario publicado');
+                window.location.reload();
+                console.log(data.success);
+
+            } else {
+                // Mostrar un mensaje de error si no se pudo crear el comentario
+                alert('Error al crear el comentario: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar el formulario:', error);
+        });
+    });
+});
