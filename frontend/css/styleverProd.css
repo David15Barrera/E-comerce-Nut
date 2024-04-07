@@ -55,6 +55,22 @@
     width: 200px;
 }
 
+.comments-and-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinear elementos al inicio verticalmente */
+}
+
+.product-comments {
+    width: calc(50% - 20px); /* El 20px es para dejar un pequeño espacio entre los elementos */
+}
+
+.contact-form {
+    width: calc(50% - 20px); /* El 20px es para dejar un pequeño espacio entre los elementos */
+}
+
+
+
 .contact-form {
     margin-top: 50px;
     max-width: 400px; /* Ajusta el ancho según sea necesario */

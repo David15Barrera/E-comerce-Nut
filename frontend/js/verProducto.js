@@ -22,15 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error al obtener los detalles del producto:', error));
 
-       fetch(`../../backend/verValoraciones.php?id=${productId}`)
+        fetch(`../../backend/verValoraciones.php?id=${productId}`)
         .then(response => response.json())
-        .then(valora => {
-
-            document.getElementById('comment-author').textContent = valora.name + " " +valora.lastname;
-            document.getElementById('comment-date').textContent =  `Fecha de Valoración: ${valora.dateValoracion}`;
-            document.getElementById('comment-rating').textContent = `Puntuación: ${valora.puntuacion}`;
-            document.getElementById('comment-text').textContent = valora.comentario;
+        .then(valoraciones => {
+            valoraciones.forEach(valora => {
+                let commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.innerHTML = `
+                    <div class="comment-header">
+                        <span class="comment-author">${valora.name} ${valora.lastName}</span>
+                        <span class="comment-date">Fecha de Valoración: ${valora.dateValoracion}</span>
+                    </div>
+                    <div class="comment-body">
+                        <span class="comment-rating">Puntuación: ${valora.puntuacion}</span>
+                        <p class="comment-text">${valora.comentario}</p>
+                    </div>
+                `;
+                document.querySelector('.product-comments').appendChild(commentDiv);
+            });
         })
         .catch(error => console.error('Error al obtener las valoraciones:', error));
+    
 
 });
