@@ -132,9 +132,17 @@ CREATE TABLE VALORACIONES (
     publicacionId INT,
     puntuacion INT,
     comentario TEXT,
-    dateValoracion DATETIME,
+    dateValoracion DATE,
     PRIMARY KEY(idValoraciones),
     FOREIGN KEY(userEvaluadorId) REFERENCES USUARIO(idUser),
     FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
+
+-- Datos de ejemplo para la tabla VALORACIONES
+INSERT INTO VALORACIONES (userEvaluadorId, publicacionId, puntuacion, comentario, dateValoracion) VALUES
+(1, 1, 5, 'Excelente producto, muy satisfecho con la compra.', '2024-03-01'),
+(2, 1, 4, 'Buen servicio, entrega rápida.', '2024-03-02'),
+(3, 1, 3, 'Producto en buen estado, pero el envío fue un poco lento.', '2024-03-03'),
+(1, 2, 5, 'Altamente recomendado, el vendedor es muy amable y atento.', '2024-03-04'),
+(2, 2, 4, 'Buena comunicación con el vendedor.', '2024-03-05');

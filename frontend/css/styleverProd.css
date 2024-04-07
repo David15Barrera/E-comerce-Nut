@@ -1,0 +1,146 @@
+.product-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px; /* Ajusta el margen según sea necesario */
+}
+
+.image-container {
+    margin-right: 50px; /* Espacio entre la imagen y el texto */
+    text-align: center; /* Centrar la imagen */
+}
+
+.image-container img {
+    width: 500px; /* Ancho de la imagen */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.details {
+    color: #333;
+}
+
+.details h1 {
+    font-size: 24px; /* Tamaño de la fuente para el título del producto */
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.details p {
+    font-size: 16px; /* Tamaño de la fuente para el texto */
+    margin-bottom: 8px;
+    color: #555;
+}
+
+
+
+
+.btn-comprar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-cantidad {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.contact-form {
+    margin-top: 50px;
+    max-width: 400px; /* Ajusta el ancho según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Considera el padding y el borde en el ancho */
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/*Comentarios*/
+.product-comments {
+    margin-top: 50px;
+    max-width: 600px; /* Ajusta el ancho según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-comments h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-date {
+    color: #777;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+.comment-rating {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    margin: 0;
+}
