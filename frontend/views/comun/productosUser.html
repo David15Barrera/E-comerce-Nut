@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/styleproductos.css">
+    <title>Usuario Productos</title>
+</head>
+<body>
+    <header>
+        <nav class="nav__hero">
+            <div class="container nav__container">
+                <div class="logo">
+                    <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
+                </div>
+                <div class="links">
+                    <a href="../comun/inicioComun.php" class="link">Cuenta</a>
+                    <a href="#" class="link">Productos</a>
+                    <a href="../comun/carrito.html" class="link link--active">Carrito</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+
+    <!-- Modal -->
+    <div class="modal" id="templatemo_search">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-content">
+                <form action="" method="get">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                        <button type="submit" class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container-prod">
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li class="category"><a href="#">Calzado</a>
+                    <ul class="sub-category">
+                        <li><a href="#">Hombre</a></li>
+                        <li><a href="#">Mujer</a></li>
+                        <li><a href="#">Niño</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">Voluntariados</a></li>
+                <li class="category"><a href="#">Ropa</a>
+                    <ul class="sub-category">
+                        <li><a href="#">Hombre</a></li>
+                        <li><a href="#">Mujer</a></li>
+                        <li><a href="#">Niño</a></li>
+                    </ul>
+                </li>
+                <li class="category"><a href="#">Comida</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Productos</h1>
+                <div class="sort-dropdown">
+                    <select>
+                        <option value="featured">Featured</option>
+                        <option value="a-z">A to Z</option>
+                        <option value="item">Item</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-list">
+                <!-- Publicaciones serán agregadas aquí dinámicamente por JavaScript -->
+           </div>
+
+
+            <div class="pagination">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="../../js/Usuario/productosComun.js"></script>
+</html>

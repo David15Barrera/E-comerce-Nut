@@ -22,7 +22,7 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
                 </div>
                 <div class="links">
                     <a href="../comun/inicioComun.php" class="link">Cuenta</a>
-                    <a href="#" class="link">Productos</a>
+                    <a href="../comun/productosUser.html" class="link">Productos</a>
                     <a href="../comun/carrito.html" class="link link--active">Carrito</a>
                 </div>
             </div>
