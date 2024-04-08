@@ -82,3 +82,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const btnComprar = document.querySelector('.btn-comprar');
+    const inputCantidad = document.querySelector('.input-cantidad');
+
+    btnComprar.addEventListener('click', function() {
+        const productId = this.value; // Obtener el ID del producto del botón "Comprar"
+        const cantidad = inputCantidad.value;
+
+        // Validar la cantidad
+        if (cantidad <= 0) {
+            alert('La cantidad debe ser mayor que cero.');
+            return; // Detener la ejecución si la cantidad es 0 o menor
+        }
+
+        const cantidadDisponible = parseInt(document.getElementById('product-cantidadDisponible').textContent.split(': ')[1]);
+        if (cantidad > cantidadDisponible) {
+            alert('No hay suficiente cantidad disponible para comprar.');
+            return; // Detener la ejecución si la cantidad excede la cantidad disponible
+        }
+
+        // Realizar una solicitud AJAX al servidor PHP para agregar el producto al carrito
+        fetch('../../../backend/aggCarrito.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `productId=${productId}&cantidad=${cantidad}`
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            }
+            throw new Error('Error en la solicitud AJAX: ' + response.statusText);
+        })
+        .then(data => {
+            // Mostrar un mensaje de compra completada si la respuesta es exitosa
+            alert(data); // Muestra el mensaje devuelto por el servidor
+            console.log(data); // Puedes manejar la respuesta como desees
+            window.location.reload();
+        })
+        .catch(error => {
+            console.error('Error en la solicitud AJAX:', error);
+        });
+    });
+});

@@ -76,6 +76,17 @@ CREATE TABLE IF NOT EXISTS CHATS(
 	FOREIGN KEY (receptor) REFERENCES USUARIO(idUser)
 );
 
+CREATE TABLE IF NOT EXISTS CARRITO (
+    idCarrito INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
+    publicacionId INT,
+    cantidad INT,
+    fechaAgregado DATETIME,
+    PRIMARY KEY(idCarrito),
+    FOREIGN KEY(userId) REFERENCES USUARIO(idUser),
+    FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
+);
+
 
 CREATE TABLE IF NOT EXISTS VENTAS (
     idventas INT AUTO_INCREMENT,

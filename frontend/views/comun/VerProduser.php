@@ -38,8 +38,9 @@
             <p id="product-FechaExpiracion">Fecha de Expiración: XX/XX/XXXX</p>
             <p id="product-Categoria">Categoría: XXX</p>        
 
-            <button class="btn-comprar">Comprar</button>
+            <button class="btn-comprar" value="<?php echo $_GET['id']; ?>">Comprar</button>
             <input type="number" placeholder="Cantidad" class="input-cantidad">
+
         </div>
     </div>
 

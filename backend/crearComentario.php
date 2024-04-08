@@ -41,3 +41,4 @@ if (isset($_SESSION['correo'])) {
     echo json_encode(['error' => 'No se ha iniciado sesión']);
 }
 ?>
+    
