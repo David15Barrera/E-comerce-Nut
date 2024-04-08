@@ -111,6 +111,19 @@
         animation: fadeInUp 0.5s ease-in-out;
     }
     
+    #checkout-btn-finalizar {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #0056b3;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        animation: fadeInUp 0.5s ease-in-out;
+    }
+
     #checkout-btn:hover {
         background-color: #004080;
     }
