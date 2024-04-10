@@ -32,7 +32,7 @@
         <ul>
             <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
             <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
-            <li><a href="#"><span class="icono-productos">Chats</span></a></li>
+            <li><a href="../comun/chats.html"><span class="icono-productos">Chats</span></a></li>
             <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
             <li><a href="#"><span class="icono-usuario">Mi Cuenta</span></a></li>
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
