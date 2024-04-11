@@ -1,19 +1,14 @@
-<?php 
-session_start();
-if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
-    $nombreUsuario = $_SESSION['nombreUsuario'];
-    $apellidoUsuario = $_SESSION['apellidoUsuario'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorizar Productos</title>
     <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
-    <title>InicioAdmin</title>
+    <link rel="stylesheet" href="../../css/styleEditProd.css">
 </head>
 <body>
-<header>
+    <header>
         <nav class="nav__hero">
             <div class="container nav__container">
                 <div class="logo">
@@ -26,14 +21,10 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
             </div>
         </nav>
     </header>
-    <br>
-    <br>
-
     <nav class="sidebar">
+        <h3>nut</h3>
         <ul>
-            <br>
-            <br>
-            <li><a href="#" class="active"><span>Inicio</span></a></li>
+            <li><a href="../admin/inicioAdmin.php" class="active"><span>Inicio</span></a></li>
             <li><a href="../admin/AgregarUser.html"><span class="icono-agregar">Agregar Usuario</span></a></li>
             <li><a href="../admin/autorizarProd.html"><span class="icono-autorizar">Autorizar</span></a></li>
             <li><a href="#"><span class="icono-reportes">Reporte Usuario</span></a></li>
@@ -42,19 +33,37 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>
-    <div class="content">
-        <div class="container">
-            <h1 class="animate__animated animate__fadeInDown">Bienvenido, <?php echo $nombreUsuario . " " . $apellidoUsuario; ?></h1>
-            <p class="animate__animated animate__fadeInUp">¡Disfruta de tu sesión como Administrador!</p>
+
+    <!-- Content -->
+    <div class="container-prod">
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Autorizar los Productos</h1>
+                <div class="sort-dropdown">
+                    <select>
+                        <option value="featured">Filtar</option>
+                        <option value="item">Servicios</option>
+                        <option value="item">Productos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-list">
+                <!-- Publicaciones serán agregadas aquí dinámicamente por JavaScript -->
+           </div>
+
+
+            <div class="pagination">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
         </div>
     </div>
+
+
+
+    <script src="../../js/admin/autoProd.js"></script>
 </body>
 </html>
-
-<?php 
-} else {
-    // Si las variables de sesión no están configuradas, redirige al usuario a la página de inicio de sesión
-    header("Location: login.html");
-    exit();
-}
-?>

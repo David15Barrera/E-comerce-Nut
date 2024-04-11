@@ -19,7 +19,7 @@ error_reporting(E_ALL);
         $precioSistema = $_POST['product-price'];
         $precioLocal = $_POST['product-precioLocal'];
         $cantidadDisponible = $_POST['product-cantidadDisponible'];
-        
+        $estado = "PENDIENTE";
         $idProducto = $_POST['idProducto'];
 
         var_dump($idProducto);
@@ -39,13 +39,14 @@ error_reporting(E_ALL);
             if (move_uploaded_file($imagen_temporal, $ruta_imagen)) {
                 // Actualizar la imagen en la base de datos
                 $sql = "UPDATE PUBLICACIONES 
-                SET titulo = :titulo, Descripcion = :descripcion, categoria = :categoria, Imagen = :imagen, precioSistema = :precioSistema, precioLocal = :precioLocal, cantidadDisponible = :cantidadDisponible
+                SET titulo = :titulo, Descripcion = :descripcion, categoria = :categoria, estado =:estado, Imagen = :imagen, precioSistema = :precioSistema, precioLocal = :precioLocal, cantidadDisponible = :cantidadDisponible
                 WHERE idPublicaciones = :idProducto";
 
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':titulo', $titulo);
                 $stmt->bindParam(':descripcion', $descripcion);
                 $stmt->bindParam(':categoria', $categoria);
+                $stmt->bindParam(':estado', $estado);
                 $stmt->bindParam(':imagen', $ruta_imagen);
                 $stmt->bindParam(':precioSistema', $precioSistema);
                 $stmt->bindParam(':precioLocal', $precioLocal);
@@ -72,13 +73,14 @@ error_reporting(E_ALL);
         } else {
             // No se subió una nueva imagen, solo actualizar los demás campos
             $sql = "UPDATE PUBLICACIONES 
-                    SET titulo = :titulo, Descripcion = :descripcion, categoria = :categoria, precioSistema = :precioSistema, precioLocal = :precioLocal, cantidadDisponible = :cantidadDisponible
+                    SET titulo = :titulo, Descripcion = :descripcion, categoria = :categoria, estado =:estado, precioSistema = :precioSistema, precioLocal = :precioLocal, cantidadDisponible = :cantidadDisponible
                     WHERE idPublicaciones = :idProducto";
 
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':titulo', $titulo);
             $stmt->bindParam(':descripcion', $descripcion);
             $stmt->bindParam(':categoria', $categoria);
+            $stmt->bindParam(':estado', $estado);
             $stmt->bindParam(':precioSistema', $precioSistema);
             $stmt->bindParam(':precioLocal', $precioLocal);
             $stmt->bindParam(':cantidadDisponible', $cantidadDisponible);

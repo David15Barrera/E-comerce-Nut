@@ -1,23 +1,7 @@
 <?php
+include_once "connection.php"; // Incluir archivo de conexión
 
-session_start();
-include 'connection.php';
-
-if (!isset($_SESSION['correo'])) {
-    // Redireccionar si el usuario no está autenticado
-    header("Location: login.html");
-    exit();
-}
-
-$correo = $_SESSION['correo'];
-$idUsuarioQuery = "SELECT idUser FROM USUARIO WHERE email='$correo'";
-$idUsuarioResult = $conn->query($idUsuarioQuery);
-
-$row = $idUsuarioResult->fetch_assoc();
-$idUser = $row['idUser'];
-
-
-$sql = "SELECT * FROM PUBLICACIONES WHERE userId = $idUser" ;
+$sql = "SELECT * FROM PUBLICACIONES WHERE estado = 'PENDIENTE'";
 $result = $conn->query($sql);
 
 $publicaciones = [];
