@@ -218,3 +218,9 @@ h1, p {
 }
 
 
+.icono-prodEditar{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/editProd.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}

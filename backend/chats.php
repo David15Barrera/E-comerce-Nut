@@ -44,7 +44,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 // Devolver los mensajes y el userId como JSON
 $response = [
     'publicacionesId' => $publicacionesId,
-    'messages' => $messages
+    'messages' => $messages,
+    'userId' => $userId
 ];
 header('Content-Type: application/json');
 echo json_encode($response);

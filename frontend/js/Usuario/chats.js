@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 data.forEach(user => {
                     const chatItem = document.createElement('div');
                     chatItem.classList.add('chat-person');
-                    chatItem.setAttribute('data-contact', user.nombre);
+                    chatItem.setAttribute('data-contact', user.nombre +" "+ user.lastname);
                     chatItem.setAttribute('data-publicacionId', user.publicacionesId);
 
                     const img = document.createElement('img');
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     info.classList.add('info');
 
                     const name = document.createElement('h3');
-                    name.textContent = user.nombre;
+                    name.textContent = user.nombre +" "+ user.lastname; 
                     info.appendChild(name);
 
                     const product = document.createElement('p');
@@ -52,15 +52,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Limpiar los mensajes anteriores
                 chatMessages.innerHTML = "";
 
-                // Mostrar los mensajes
                 data.messages.forEach(message => {
                     const messageDiv = document.createElement('div');
                     messageDiv.classList.add('message');
-                    messageDiv.classList.add(message.emisor == data.userId ? 'sent' : 'received');
+                    
+                    // Determinar si el mensaje fue enviado por el usuario actual
+                    const isSentByUser = message.emisor == data.userId;                    
+                    console.log(data.userId);
+                    // Determinar si el mensaje fue recibido por el usuario actual
+                    const isReceivedByUser = message.receptor == data.userId;                    
+                    console.log(isReceivedByUser)
+                    // Si el mensaje fue enviado por el usuario actual, aplicar la clase 'sent'
+                    if (isSentByUser) {
+                        messageDiv.classList.add('received');
+                    } else if (isReceivedByUser) {
+                        // If the message was received, apply the 'received' class
+                        messageDiv.classList.add('sent');
+                    }
+                
                     messageDiv.innerHTML = `
                         <p>${message.mensaje}</p>
                         <div class="message-timestamp">${message.timeMessage}</div>
                     `;
+                    
                     chatMessages.appendChild(messageDiv);
                 });
 

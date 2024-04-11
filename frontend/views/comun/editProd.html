@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>Editar Mis Productos</title>
     <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
-    <link rel="stylesheet" href="../../css/stylechats.css">
+    <link rel="stylesheet" href="../../css/styleEditProd.css">
 </head>
 <body>
     <header>
@@ -27,7 +27,7 @@
         <ul>
             <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
             <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
-            <li><a href="#"><span class="icono-productos">Chats</span></a></li>
+            <li><a href="../comun/chats.html"><span class="icono-productos">Chats</span></a></li>
             <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
             <li><a href="../comun/editProd.html"><span class="icono-prodEditar">Mis Productos</span></a></li>
             <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>
@@ -35,16 +35,37 @@
         </ul>
     </nav>
 
-    <div class="chat-center">
-        <div class="chat-list">
-            <!-- Listado de personas que han enviado mensajes -->
+    <!-- Content -->
+    <div class="container-prod">
+        <div class="main-content">
+            <div class="top-bar">
+                <h1>Edición de Productos</h1>
+                <div class="sort-dropdown">
+                    <select>
+                        <option value="featured">Filtar</option>
+                        <option value="a-z">A a Z</option>
+                        <option value="item">Servicios</option>
+                        <option value="item">Productos</option>
+                    </select>
+                </div>
+            </div>
 
-            <!-- Más personas -->
-        </div>
-        <div class="chat-messages">
-            <!-- Se llenará con los mensajes según la persona seleccionada -->
+            <div class="product-list">
+                <!-- Publicaciones serán agregadas aquí dinámicamente por JavaScript -->
+           </div>
+
+
+            <div class="pagination">
+                <ul>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">Next</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-<script src="../../js/Usuario/chats.js"></script>
+
+
+
+    <script src="../../js/Usuario/editProd.js"></script>
 </body>
 </html>

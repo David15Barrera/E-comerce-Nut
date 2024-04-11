@@ -1,0 +1,268 @@
+.product-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* Ajusta el margen según sea necesario */
+}
+
+.image-container {
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+    text-align: center; /* Centrar la imagen */
+}
+
+.image-container img {
+    width: 500px; /* Ancho de la imagen */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+    color: #333;
+}
+
+.details h1 {
+    font-size: 24px; /* Tamaño de la fuente para el título del producto */
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.details p {
+    font-size: 16px; /* Tamaño de la fuente para el texto */
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.btn-comprar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.input-cantidad {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.comments-and-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinear elementos al inicio verticalmente */
+}
+
+.product-comments {
+    width: calc(50% - 20px); /* El 20px es para dejar un pequeño espacio entre los elementos */
+}
+
+.contact-form {
+    width: calc(50% - 20px); /* El 20px es para dejar un pequeño espacio entre los elementos */
+}
+
+.contact-form {
+    margin-top: 50px;
+    max-width: 400px; /* Ajusta el ancho según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Considera el padding y el borde en el ancho */
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/*Comentarios*/
+
+
+.product-comments {
+    margin-top: 50px;
+    max-width: 600px; /* Ajusta el ancho según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-comments h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-date {
+    color: #777;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+.comment-rating {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.comment-text {
+    margin: 0;
+}
+
+.form-comentario {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-comentario h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-comentario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 12px;
+}
+
+.form-comentario textarea,
+.form-comentario select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #0e0e0e;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form-comentario button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-comentario button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#product-form {
+    max-width: 400px; /* Ancho máximo del formulario */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; /* Esto permite al usuario redimensionar verticalmente */
+    min-height: 100px; /* Altura mínima del textarea */
+}
+
+.precio-lado{
+    display: flex;
+    margin-bottom: 10px;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between; /* Alinea los botones al principio y al final */
+    margin-top: 20px;
+}
+
+button {
+    background-color: #41b3d2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 48%; /* Ancho de los botones */
+}
+
+.btn-Eliminar {
+    background-color: #ff0000; /* Rojo */
+    color: white; /* Texto blanco */
+}
+button:hover {
+    background-color: #45a049;
+}

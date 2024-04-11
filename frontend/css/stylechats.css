@@ -31,6 +31,7 @@ body {
 }
 
 .chat-list .chat-person .avatar {
+    position: center;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -68,7 +69,7 @@ body {
 }
 
 .message.sent {
-    background-color: #007bff;
+    background-color: #abd2fd;
     color: #fff;
     border-radius: 10px 10px 0 10px;
     align-self: flex-end;
