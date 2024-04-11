@@ -26,7 +26,7 @@
         <div class="image-container">
             <img alt="Producto" id="product-image">
         </div>
-        <form id="product-form">
+        <form action="../../../backend/editarPublicacion.php" method="POST" enctype="multipart/form-data" class="form-grid" id="product-form">
         <label for="product-title">Nombre del Producto:</label>
             <input type="text" id="product-title" name="product-title">
 
@@ -34,14 +34,16 @@
             <textarea type="text" id="product-description" name="product-description"></textarea>
         <div class="precio-lado">
             <label for="product-price">Precio:</label>
-            <input type="number" id="product-price" name="product-price">
+            <input type="number" id="product-price" name="product-price" oninput="convertirPrecioNutPoints()">
         
             <label for="product-precioLocal">Puntos</label>
-            <input type="number" id="product-precioLocal" name="product-precioLocal">
+            <input type="number" id="product-precioLocal" name="product-precioLocal" readonly>
         </div>
             <label for="product-cantidadDisponible">Cantidad Disponible:</label>
             <input type="number" id="product-cantidadDisponible" name="product-cantidadDisponible">
-            
+
+            <input type="hidden" id="idProducto" name="idProducto" value="<?php echo $_GET['id']; ?>">
+
 
             <label for="product-Categoria">Categoría:</label>
                         <select id="product-Categoria" name="product-Categoria" required>
@@ -59,7 +61,7 @@
                         </select>
 
             <label for="imagen">Imagen:</label>
-            <input type="file" id="imagen" name="imagen" accept="image/*" required>
+            <input type="file" id="imagen" name="imagen" accept="image/*">
 
             <div class="buttons">
                 <button type="submit" class="btn-guardar">Guardar</button>

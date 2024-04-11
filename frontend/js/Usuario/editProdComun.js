@@ -1,3 +1,17 @@
+
+function convertirPrecioNutPoints() {
+    const precioSistemaInput = document.getElementById('product-price');
+    const precioLocalInput = document.getElementById('product-precioLocal');
+    const precioSistema = parseFloat(precioSistemaInput.value);
+    
+    if (!isNaN(precioSistema)) {
+        const precioLocal = precioSistema * 10; // Tasa de conversión (1 Quetzal = 10 nutPoints)
+        precioLocalInput.value = precioLocal.toFixed(2);
+    } else {
+        precioLocalInput.value = '';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener el ID del producto de la URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -41,6 +55,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => console.error('Error al obtener las valoraciones:', error));
-    
-
 });
