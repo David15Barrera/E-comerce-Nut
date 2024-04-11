@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
     <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
-    <link rel="stylesheet" href="../../css/stylechats.css">
+    <link rel="stylesheet" href="../../css/stylePuntos.css">
+    <title>Puntos</title>
 </head>
 <body>
     <header>
@@ -25,9 +25,9 @@
     <nav class="sidebar">
         <h3>nut</h3>
         <ul>
-            <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
+            <li><a href="#" class="active"><span>Inicio</span></a></li>
             <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
-            <li><a href="#"><span class="icono-productos">Chats</span></a></li>
+            <li><a href="../comun/chats.html"><span class="icono-productos">Chats</span></a></li>
             <li><a href="../comun/historial.html"><span class="icono-reportes">Mis compras</span></a></li>
             <li><a href="../comun/editProd.html"><span class="icono-prodEditar">Mis Productos</span></a></li>
             <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>
@@ -36,17 +36,23 @@
         </ul>
     </nav>
 
-    <div class="chat-center">
-        <div class="chat-list">
-            <!-- Listado de personas que han enviado mensajes -->
-
-            <!-- Más personas -->
+    <div class="puntos-container">
+        <div class="puntos-header">
+            <h1>Tus Bellotas</h1>
+            <p>Tienes <span id="user-points">100</span> bellotas.</p>
+            <button class="btn-comprar">Comprar más puntos</button>
         </div>
-        <div class="chat-messages">
-            <!-- Se llenará con los mensajes según la persona seleccionada -->
-            <img src="../../img/img_user/jugandoc.png" alt="Feliz">
+        <div class="puntos-history">
+            <h2>Historial de Puntos</h2>
+            <ul>
+                <li><span class="date">01/04/2024</span> - Ganaste 50 puntos por realizar una voluntariado.</li>
+                <li><span class="date">02/04/2024</span> - Gastaste 20 puntos en una compra.</li>
+                <!-- Más elementos de historial -->
+            </ul>
         </div>
     </div>
-<script src="../../js/Usuario/chats.js"></script>
+
+      <!-- Imagen de la ardilla con lupa animada -->
+      <img src="../../img/img_user/ardillaLupa.png" alt="Ardilla con lupa" class="squirrel-img">
 </body>
 </html>

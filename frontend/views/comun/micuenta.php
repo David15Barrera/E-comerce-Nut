@@ -33,9 +33,10 @@
             <li><a href="../comun/inicioComun.php" class="active"><span>Inicio</span></a></li>
             <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
             <li><a href="../comun/chats.html"><span class="icono-productos">Chats</span></a></li>
-            <li><a href="#"><span class="icono-reportes">Mis compras</span></a></li>
+            <li><a href="../comun/historial.html"><span class="icono-reportes">Mis compras</span></a></li>
             <li><a href="../comun/editProd.html"><span class="icono-prodEditar">Mis Productos</span></a></li>
             <li><a href="#"><span class="icono-usuario">Mi Cuenta</span></a></li>
+            <li><a href="../comun/Puntos.html"><span class="icono-Puntos">Puntos</span></a></li>
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>

@@ -1,0 +1,117 @@
+/* Contenedor principal de puntos */
+.puntos-container {
+    max-width: 800px;
+    height: calc(100vh - 50px); /* Resta el alto del nav superior */
+    margin: 20px auto; /* Ajustar margen superior para dejar espacio para el nav */
+    padding: 20px;
+    position: relative; /* Añadir posición relativa para el posicionamiento absoluto de la imagen */
+    display: flex; /* Utilizar flexbox para alinear los elementos */
+    flex-direction: column; /* Alinear los elementos en columna */
+    align-items: center; /* Alinear verticalmente los elementos */
+    justify-content: center; /* Alinear horizontalmente los elementos */
+}
+
+/* Imagen de la ardilla con lupa */
+.squirrel-img {
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Alinea la parte superior de la imagen con la mitad del contenedor de puntos */
+    left: calc(50% + 200px); /* Coloca la imagen a 400px a la derecha del centro del contenedor de puntos */
+    transform: translateY(-50%); /* Corrige la posición vertical para centrar la imagen */
+    width: 450px; /* Ajusta el ancho de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+
+/* Encabezado de puntos */
+.puntos-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.puntos-header h1 {
+    font-size: 36px; /* Reducir el tamaño del título */
+    margin-bottom: 20px; /* Mayor espacio inferior */
+    color: #007bff; /* Color azul para resaltar */
+    text-transform: uppercase; /* Convertir texto a mayúsculas */
+    letter-spacing: 2px; /* Añadir espacio entre letras */
+    animation: bounce 1s infinite alternate; /* Animación de rebote */
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.puntos-header p {
+    font-size: 50px; /* Aumentar el tamaño de la fuente */
+    margin-bottom: 30px; /* Mayor espacio inferior */
+}
+
+.puntos-header .btn-comprar {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 24px; /* Aumentar el padding */
+    cursor: pointer;
+    border-radius: 30px; /* Hacer los bordes más redondeados */
+    font-size: 20px; /* Aumentar el tamaño de la fuente */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transiciones suaves */
+}
+
+.puntos-header .btn-comprar:hover {
+    background-color: #0056b3; /* Cambiar color de fondo al pasar el mouse */
+    transform: scale(1.1); /* Agrandar el botón al pasar el mouse */
+}
+
+/* Historial de puntos */
+.puntos-history {
+    margin-top: 50px;
+}
+
+.puntos-history h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.puntos-history ul {
+    list-style: none;
+    padding: 0;
+}
+
+.puntos-history li {
+    font-size: 16px;
+    margin-bottom: 20px; /* Mayor espacio inferior */
+    border-bottom: 1px solid #ccc; /* Línea divisoria entre elementos */
+    padding-bottom: 10px; /* Añadir espacio inferior interno */
+    position: relative; /* Posición relativa para los puntos */
+}
+
+/* Puntos acumulados */
+.puntos-history li .points {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 24px; /* Aumentar el tamaño del número de puntos */
+    color: #007bff; /* Color azul para resaltar */
+    animation: pulse 1s infinite alternate; /* Animación de pulso */
+}
+
+/* Animación de pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.puntos-history li .date {
+    font-weight: bold;
+    margin-right: 10px;
+}

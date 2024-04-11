@@ -224,3 +224,9 @@ h1, p {
     background-size: 18px 18px; /* Tamaño del icono */
     line-height: 16px; /* Ajustar la altura del icono al texto */
 }
+.icono-Puntos{
+    padding-left: 25px; /* Espacio a la izquierda del texto para el icono */
+    background: url('../img/img_user/Puntos.png') no-repeat left center; /* Configuración del fondo */
+    background-size: 18px 18px; /* Tamaño del icono */
+    line-height: 16px; /* Ajustar la altura del icono al texto */
+}

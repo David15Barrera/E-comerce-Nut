@@ -44,6 +44,16 @@ body {
     overflow-y: auto;
 }
 
+.chat-messages img {
+    /* Estilos para la imagen dentro del contenedor */
+    /* Puedes ajustar el tamaño, posición, márgenes, etc. según tus necesidades */
+    width: 300px;
+    height: auto;
+    margin-left: 200px; /* Ajusta la distancia desde el borde izquierdo */
+    margin-right: 100px; 
+}
+
+
 .chat-messages .chat-header {
     display: flex;
     align-items: center;

@@ -32,7 +32,7 @@
                 p.textContent = publicacion.descripcion;
 
                 const span = document.createElement('span');
-                span.textContent = publicacion.precioLocal + ' NutPoints - ';
+                span.textContent = publicacion.precioLocal + ' Bellotas - ';
 
                 const span2 = document.createElement('span');
                 span2.textContent = 'Q ' +publicacion.precioSistema

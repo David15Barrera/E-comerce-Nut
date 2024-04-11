@@ -1,0 +1,36 @@
+.main-content {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 50px auto; /* Margen superior e inferior para centrar el contenido */
+    padding: 20px; /* Espaciado interno */
+    height: calc(100vh - 50px); /* Resta el alto del nav superior */
+    overflow-y: auto; /* Añadir desplazamiento vertical si el contenido es demasiado largo */
+    margin-left: 250px; /* Margen izquierdo igual al ancho del sidebar */
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabla th, .tabla td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla th {
+    background-color: #f2f2f2;
+}
+
+.tabla tr:hover {
+    background-color: #f2f2f2;
+}
+
+.tabla th:first-child, .tabla td:first-child {
+    border-left: 1px solid #ddd;
+}
+
+.tabla th:last-child, .tabla td:last-child {
+    border-right: 1px solid #ddd;
+}
