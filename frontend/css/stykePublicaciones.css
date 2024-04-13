@@ -22,6 +22,14 @@ h1 {
     margin-bottom: 30px;
 }
 
+img {
+    /* Estilos para la imagen dentro del contenedor */
+    /* Puedes ajustar el tamaño, posición, márgenes, etc. según tus necesidades */
+    width: 300px;
+
+}
+
+
 #imagen-preview-container {
     max-width: 100%;
     overflow-x: auto; /* Hace que la imagen se desborde hacia la derecha si es demasiado ancha */
