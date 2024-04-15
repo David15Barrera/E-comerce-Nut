@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     chatItem.classList.add('chat-person');
                     chatItem.setAttribute('data-contact', user.nombre +" "+ user.lastname);
                     chatItem.setAttribute('data-publicacionId', user.publicacionesId);
-
+                    chatItem.setAttribute('data-id', user.idUser);
                     const img = document.createElement('img');
                     img.src = "../../img/avatar.png";
                     img.alt = "Avatar";
@@ -38,13 +38,15 @@ document.addEventListener("DOMContentLoaded", function() {
                     chatItem.appendChild(info);
 
                     chatList.appendChild(chatItem);
+                    console.log(user.idUser);
+                    console.log(user.publicacionesId);
                 });
             })
             .catch(error => console.error('Error al obtener la información:', error));
     }
 
     // Función para obtener y mostrar los mensajes según el contacto seleccionado
-    function mostrarConversacion(publicacionId) {
+    function mostrarConversacion(publicacionId, receptor) {
         // Obtener los mensajes del chat relacionados con la publicación
         fetch(`../../../backend/chats.php?publicacionesId=${publicacionId}`)
             .then(response => response.json())
@@ -58,10 +60,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                     // Determinar si el mensaje fue enviado por el usuario actual
                     const isSentByUser = message.emisor == data.userId;                    
-                    console.log(data.userId);
+                    //console.log(message.emisor);
                     // Determinar si el mensaje fue recibido por el usuario actual
-                    const isReceivedByUser = message.receptor == data.userId;                    
-                    console.log(isReceivedByUser)
+                    const isReceivedByUser = message.receptor == data.userId;
+                    //console.log(message.receptor);
+//                    console.log(publicacionId);
+                    console.log(receptor);
                     // Si el mensaje fue enviado por el usuario actual, aplicar la clase 'sent'
                     if (isSentByUser) {
                         messageDiv.classList.add('received');
@@ -83,11 +87,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 composeDiv.innerHTML = `
                 <form id="messageForm">
                 <textarea name="message" placeholder="Escribe un mensaje..."></textarea>
+                <input type="hidden" name="receptor" value="${receptor}">
                 <button type="submit">Enviar</button>
             </form>
                 `;
                 chatMessages.appendChild(composeDiv);
                 const messageForm = document.getElementById('messageForm');
+
                 messageForm.addEventListener('submit', function(event) {
                     event.preventDefault();
                     const formData = new FormData(this);
@@ -101,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     .then(data => {
                         if (data.success) {
                             // Recargar la conversación después de enviar el mensaje
-                            mostrarConversacion(publicacionId);
+                            mostrarConversacion(publicacionId, receptor);
                         } else {
                             alert(data.message);
                         }
@@ -121,8 +127,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (chatPerson) {
             // Obtener el ID de la publicación
             const publicacionId = chatPerson.getAttribute('data-publicacionId');
+            const receptor = chatPerson.getAttribute('data-id');
             // Mostrar la conversación correspondiente
-            mostrarConversacion(publicacionId);
+            mostrarConversacion(publicacionId, receptor);
         }
     });
 });

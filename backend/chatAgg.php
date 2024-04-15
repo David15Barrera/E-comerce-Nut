@@ -3,9 +3,10 @@ include_once "connection.php"; // Incluir archivo de conexión
 
 // Verificar si la solicitud es de tipo POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtener el ID de la publicación y el mensaje del formulario
+    // Obtener los datos del formulario
     $publicacionId = $_POST['publicacionesId'];
     $mensaje = $_POST['message'];
+    $receptorId = $_POST['receptor'];
 
     // Obtener el ID del usuario emisor a partir de la sesión
     session_start();
@@ -24,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emisorId = $row['idUser'];
 
         // Insertar el mensaje en la base de datos
-        $insertQuery = "INSERT INTO CHATS (publicacionesId, emisor, mensaje, timeMessage) VALUES ('$publicacionId', '$emisorId', '$mensaje', NOW())";
+        $insertQuery = "INSERT INTO CHATS (publicacionesId, emisor, receptor, mensaje, timeMessage) VALUES ('$publicacionId', '$emisorId', '$receptorId', '$mensaje', NOW())";
         if ($conn->query($insertQuery) === TRUE) {
-            echo json_encode(['success' => true, 'message' => 'Mensaje enviado correctamente.']);
+            echo json_encode(['success' => true, 'message' => 'Mensaje enviado con éxito.']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Error al enviar el mensaje: ' . $conn->error]);
         }

@@ -19,7 +19,7 @@ if ($idUsuarioResult->num_rows == 1) {
     $idUser = $row['idUser'];
 
     // Consulta para obtener los usuarios que quieren interactuar con el usuario actual
-    $usuariosInteresadosQuery = "SELECT UD.name, UD.lastname, P.titulo, C.publicacionesId
+    $usuariosInteresadosQuery = "SELECT DISTINCT U.idUser, UD.name, UD.lastname, P.titulo, C.publicacionesId, C.emisor, C.receptor
                                 FROM CHATS C
                                 INNER JOIN USUARIO U ON C.emisor = U.idUser
                                 INNER JOIN USUARIODATOS UD ON U.idUser = UD.userId
@@ -33,9 +33,12 @@ if ($idUsuarioResult->num_rows == 1) {
     if ($usuariosInteresadosResult->num_rows > 0) {
         while ($row = $usuariosInteresadosResult->fetch_assoc()) {
             $usuariosInteresados[] = [
+                'idUser' => $row['idUser'],
                 'nombre' => $row['name'],
                 'lastname' => $row['lastname'],
                 'titulo_publicacion' => $row['titulo'],
+                'emisor' => $row['emisor'],
+                'receptor' => $row['receptor'],
                 'publicacionesId' => $row['publicacionesId']
             ];
         }
