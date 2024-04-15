@@ -81,11 +81,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 const composeDiv = document.createElement('div');
                 composeDiv.classList.add('compose');
                 composeDiv.innerHTML = `
-                    <textarea placeholder="Escribe un mensaje..."></textarea>
-                    <button>Enviar</button>
+                <form id="messageForm">
+                <textarea name="message" placeholder="Escribe un mensaje..."></textarea>
+                <button type="submit">Enviar</button>
+            </form>
                 `;
                 chatMessages.appendChild(composeDiv);
+                const messageForm = document.getElementById('messageForm');
+                messageForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const formData = new FormData(this);
+                    formData.append('publicacionesId', publicacionId);
 
+                    fetch('../../../backend/chatAgg.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Recargar la conversación después de enviar el mensaje
+                            mostrarConversacion(publicacionId);
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error al enviar el mensaje:', error));
+                });
             })
             .catch(error => console.error('Error al obtener la conversación:', error));
     }

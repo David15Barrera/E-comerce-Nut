@@ -25,7 +25,7 @@ if ($idUsuarioResult->num_rows == 1) {
                                 INNER JOIN USUARIODATOS UD ON U.idUser = UD.userId
                                 INNER JOIN PUBLICACIONES P ON C.publicacionesId = P.idPublicaciones
                                 WHERE C.receptor = $idUser";
-
+                                
     $usuariosInteresadosResult = $conn->query($usuariosInteresadosQuery);
 
     // Manejar los resultados obtenidos
