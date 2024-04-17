@@ -6,7 +6,7 @@ if (isset($_SESSION['correo'])) {
     $correo = $_SESSION['correo'];
 
     // Consulta para recuperar los productos en el carrito del usuario
-    $sql = "SELECT P.titulo, P.precioSistema, C.idCarrito, C.cantidad, (P.precioSistema * C.cantidad) AS total FROM CARRITO AS C INNER JOIN PUBLICACIONES AS P ON C.publicacionId = P.idPublicaciones INNER JOIN USUARIO AS U ON C.userId = U.idUser WHERE U.email = '$correo'";
+    $sql = "SELECT P.titulo, P.precioSistema, C.idCarrito, C.cantidad, C.publicacionId, (P.precioSistema * C.cantidad) AS total FROM CARRITO AS C INNER JOIN PUBLICACIONES AS P ON C.publicacionId = P.idPublicaciones INNER JOIN USUARIO AS U ON C.userId = U.idUser WHERE U.email = '$correo'";
     
     $result = $conn->query($sql);
 
@@ -18,6 +18,7 @@ if (isset($_SESSION['correo'])) {
                 'precioSistema' => $row['precioSistema'],
                 'idCarrito' => $row['idCarrito'],
                 'cantidad' => $row['cantidad'],
+                'publicacionId' => $row['publicacionId'],
                 'total' => $row['total']
             );
         }

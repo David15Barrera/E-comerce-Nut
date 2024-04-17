@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         data.forEach(producto => {
             const productHTML = `
             <ul>
-                <li>${producto.titulo} - Cantidad: ${producto.cantidad} - Q${producto.total} </li>
+                <li>${producto.titulo} - Cantidad: ${producto.cantidad} - Q${producto.total} ${producto.publicacionId} </li>
             </ul>
             `;
             cartItemsContainer.innerHTML += productHTML;
@@ -48,7 +48,7 @@ function cargarCiudades() {
     ciudadSelect.innerHTML = ""; // Limpiar opciones anteriores
 
     if (paisSeleccionado === "Estados Unidos") {
-        ciudades = ["Nueva York", "Los Ángeles", "Chicago", "Houston"];
+        ciudades = ["Nueva York", "Los Angeles", "Chicago", "Houston"];
     } else if (paisSeleccionado === "Canada") {
         ciudades = ["Toronto", "Montreal", "Vancouver", "Ottawa"];
     } else if (paisSeleccionado === "Mexico") {
@@ -107,7 +107,7 @@ function cambiarMetodoPago() {
     var numeroTarjetaInput = document.getElementById("numero-tarjeta");
     var fechaExpiracionInput = document.getElementById("fecha-expiracion");
 
-    if (metodoPagoSelect.value === "puntos") {
+    if (metodoPagoSelect.value === "precioLocal") {
         nombreTarjetaInput.readOnly = true;
         numeroTarjetaInput.readOnly = true;
         fechaExpiracionInput.readOnly = true;
@@ -117,3 +117,56 @@ function cambiarMetodoPago() {
         fechaExpiracionInput.readOnly = false;
     }
 }
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const checkoutBtn = document.getElementById('checkout-btn');
+
+    checkoutBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const cantidad = document.getElementById('total-points').textContent; // Cantidad de puntos
+        const total = document.getElementById('total-quetzales').textContent; // Total en quetzales
+        const direccion = document.getElementById('direccion').value;
+        const pais = document.getElementById('pais').value;
+        const ciudad = document.getElementById('ciudad').value;
+        const codPostal = document.getElementById('postal').value;
+        const metodoPago = document.getElementById('metodo-pago').value; // Nuevo campo agregado
+
+
+        console.log(metodoPago);
+        // Crear un objeto con los datos a enviar
+        const data = {
+            cantidad: cantidad,
+            total: total,
+            direccion: direccion,
+            pais: pais,
+            ciudad: ciudad,
+            codPostal: codPostal,
+            metodoPago: metodoPago // Pasar el método de pago al backend 
+        };
+
+        // Realizar la solicitud Fetch
+        fetch('../../../backend/registrarVenta.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // Convertir el objeto a JSON
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                    window.location.href = 'inicioComun.php';
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error al realizar la venta:', error);
+        });
+    });
+});
+

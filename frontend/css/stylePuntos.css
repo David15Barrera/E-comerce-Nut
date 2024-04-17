@@ -1,7 +1,7 @@
 /* Contenedor principal de puntos */
 .puntos-container {
     max-width: 800px;
-    height: calc(100vh - 50px); /* Resta el alto del nav superior */
+    height: calc(100vh - 10); /* Resta el alto del nav superior */
     margin: 20px auto; /* Ajustar margen superior para dejar espacio para el nav */
     padding: 20px;
     position: relative; /* Añadir posición relativa para el posicionamiento absoluto de la imagen */

@@ -26,15 +26,23 @@ CREATE TABLE IF NOT EXISTS USUARIODATOS(
     FOREIGN KEY(userId) REFERENCES USUARIO(idUser)
 );
 
-CREATE TABLE IF NOT EXISTS PUNTOS (
-    idPuntos INT AUTO_INCREMENT,
-    userId INT UNSIGNED,
-    Monto INT,
-    descripcion VARCHAR(255),
-    fechaoObtencion DATETIME,
-	PRIMARY KEY (idPuntos),
+CREATE TABLE IF NOT EXISTS PUNTOS_TOTALES (
+    userId INT UNSIGNED PRIMARY KEY,
+    puntosTotales INT,
     FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
 );
+
+CREATE TABLE IF NOT EXISTS HISTORIAL_PUNTOS (
+    idHistorial INT AUTO_INCREMENT,
+    userId INT UNSIGNED,
+    puntosObtenidos INT,
+    descripcion VARCHAR(255),
+    fechaoObtencion DATETIME,
+    PRIMARY KEY (idHistorial),
+    FOREIGN KEY (userId) REFERENCES USUARIO(idUser),
+    CONSTRAINT FK_PUNTOS_TOTALES FOREIGN KEY (userId) REFERENCES PUNTOS_TOTALES(userId)
+);
+
 
 CREATE TABLE IF NOT EXISTS UBICACION (
     idUbicacion INT AUTO_INCREMENT,
@@ -109,6 +117,8 @@ CREATE TABLE IF NOT EXISTS DETALLETRANSACCIONES (
     moneda ENUM('sistema','local'),
     direccionVenta VARCHAR(150),
     pais VARCHAR(150),
+    cuidad VARCHAR(150),
+    codPostal VARCHAR(100),
     PRIMARY KEY (idTransaccion),
     FOREIGN KEY (ventasid) REFERENCES VENTAS(idventas),
     FOREIGN KEY (publicacionesId) REFERENCES PUBLICACIONES(idPublicaciones)

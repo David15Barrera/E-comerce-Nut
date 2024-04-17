@@ -17,7 +17,7 @@ if (isset($_SESSION['correo'])) {
         $idUser = $row_usuario['idUser'];
 
         // Obtener los puntos del usuario desde la tabla de PUNTOS
-        $sql_puntos = "SELECT puntosObtenidos, descripcion, fechaoObtencion FROM HISTORIAL_PUNTOS WHERE userId = :idUser";
+        $sql_puntos = "SELECT puntosTotales FROM PUNTOS_TOTALES WHERE userId = :idUser";
         $stmt_puntos = $pdo->prepare($sql_puntos);
         $stmt_puntos->bindParam(':idUser', $idUser);
 
