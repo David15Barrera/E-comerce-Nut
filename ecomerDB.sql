@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS PUNTOS (
     idPuntos INT AUTO_INCREMENT,
     userId INT UNSIGNED,
     Monto INT,
+    descripcion VARCHAR(255),
     fechaoObtencion DATETIME,
 	PRIMARY KEY (idPuntos),
     FOREIGN KEY (userId) REFERENCES USUARIO(idUser)

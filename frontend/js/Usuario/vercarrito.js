@@ -111,3 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+document.getElementById("checkout-btn-finalizar").addEventListener("click", function() {
+    window.location.href = "realizarCompra.html";
+  });

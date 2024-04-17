@@ -1,0 +1,125 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-prod {
+    display: flex;
+    height: calc(100vh - 50px); /* Resta el alto del nav superior */
+    margin-top: 70px; /* Ajusta el margen superior para evitar que se superponga con el nav superior */
+    margin-left: 300px;
+    margin-right: 50px;
+    display: flex;
+}
+
+.left-column, .right-column {
+    width: 50%;
+}
+
+.billing-form, .selected-products, .payment-method, .total {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+
+.billing-form h2, .selected-products h2, .payment-method h2, .total h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.billing-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.billing-form label, .selected-products ul, .payment-method label, .total p {
+    margin-bottom: 10px;
+}
+
+.selected-products ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.selected-products ul li {
+    margin-bottom: 5px;
+}
+
+.payment-method select, #form-tarjeta {
+    margin-top: 10px;
+}
+
+
+/* Añade estas reglas al final de tu archivo CSS */
+
+.container-prod {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-column, .right-column {
+    width: 45%;
+}
+
+.total, .billing-form, .selected-products, .payment-method {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.billing-form form label, .selected-products ul li, .payment-method label {
+    margin-bottom: 10px;
+}
+
+.billing-form form input, .billing-form form select, #form-tarjeta input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#select{
+    margin-top: 10px;
+}
+
+.payment-method select, #form-tarjeta {
+    margin-top: 10px;
+}
+
+#checkout-btn {
+    padding: 15px 30px;
+    margin-top: 20px;
+    margin-left: 150px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#checkout-btn:hover {
+    background-color: #0056b3;
+}
+
+.payment-method select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#form-tarjeta select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

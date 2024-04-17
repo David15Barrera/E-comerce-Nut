@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
+    <link rel="stylesheet" href="../../css/styleRealizarCompra.css">
+    <title>Realizar Compra</title>
+</head>
+<body>
+    <header>
+        <nav class="nav__hero">
+            <div class="container nav__container">
+                <div class="logo">
+                    <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
+                </div>
+                <div class="links">
+                    <a href="../comun/inicioComun.php" class="link">Cuenta</a>
+                    <a href="../comun/productosUser.html" class="link">Productos</a>
+                    <a href="../comun/carrito.html" class="link link--active">Carrito</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <nav class="sidebar">
+        <h3>nut</h3>
+        <ul>
+            <li><a href="#" class="active"><span>Inicio</span></a></li>
+            <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
+            <li><a href="../comun/chats.html"><span class="icono-productos">Chats</span></a></li>
+            <li><a href="../comun/historial.html"><span class="icono-reportes">Mis compras</span></a></li>
+            <li><a href="../comun/editProd.html"><span class="icono-prodEditar">Mis Productos</span></a></li>
+            <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>
+            <li><a href="../comun/Puntos.html"><span class="icono-Puntos">Puntos</span></a></li>
+            <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="container-prod">
+        <div class="left-column">
+            <div class="total">
+                <h2>Total</h2>
+                <p>Total en puntos: <span id="total-points">300</span> bellotas</p>
+                <p>Total en quetzales: Q<span id="total-quetzales">Q190.00</span></p>
+            </div>
+            <div class="billing-form">
+                <h2>Datos de Facturación</h2>
+                <form>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" readonly>
+
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" readonly>
+
+                    <label for="nit">Nit:</label>
+                    <input type="text" id="nit" name="nit">
+    
+                    <label for="correo">Correo:</label>
+                    <input type="text" id="correo" name="correo" readonly>
+
+                    <label for="postal">Codigo Postal:</label>
+                    <input type="text" id="postal" name="postal" required>
+
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+
+                    <div class="form-group">
+                        <label for="pais">País:</label>
+                        <select id="pais" name="pais" required onchange="cargarCiudades()">
+                            <option value="">Selecciona un País</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Canada">Canadá</option>
+                            <option value="Mexico">México</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Espana">España</option>
+                            <option value="Japon">Japón</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Panama">Panamá</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad:</label>
+                        <select id="ciudad" name="ciudad" required>
+                            <option value="">Selecciona una Ciudad</option>
+                            <!-- Las ciudades se cargarán dinámicamente aquí -->
+                        </select>
+                    </div>
+
+                    <label for="phone">Celular/Telefono:</label>
+                    <input type="number" id="phone" name="phone" readonly>
+
+                </form>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="selected-products">
+                <h2>Productos Seleccionados</h2>
+                <div class="list-products">
+                            <!-- Los productos se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+            <div class="payment-method">
+                <h2>Método de Pago</h2>
+                <label for="metodo-pago">Método de Pago:</label>
+                <select id="metodo-pago" name="metodo-pago" required onchange="cambiarMetodoPago()">
+                    <option value="puntos">Puntos</option>
+                    <option value="quetzales">Quetzales</option>
+                </select>
+                <div id="form-tarjeta">
+                    <label for="nombre-tarjeta">Nombre en la Tarjeta:</label>
+                    <input type="text" id="nombre-tarjeta" name="nombre-tarjeta" required readonly>
+            
+                    <label for="numero-tarjeta">Número de Tarjeta:</label>
+                    <input type="text" id="numero-tarjeta" name="numero-tarjeta" required readonly>
+            
+                    <label for="fecha-expiracion">Fecha de Expiración:</label>
+                    <input type="date" id="fecha-expiracion" name="fecha-expiracion" required readonly>
+                </div>
+            </div>
+            <button id="checkout-btn">Realizar Pedido</button>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <script src="../../js/Usuario/realizarcomp.js"></script>
+ </body>
+</html>
