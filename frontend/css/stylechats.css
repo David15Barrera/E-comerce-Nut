@@ -70,7 +70,7 @@ body {
 .message {
     padding: 10px;
     margin-bottom: 10px;
-    max-width: 70%;
+    max-width: 80%;
 }
 
 .message.received {
@@ -93,6 +93,8 @@ body {
 
 .compose textarea {
     flex: 1;
+    width: 80%;
+    max-width: none;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -113,4 +115,9 @@ body {
     font-size: 12px; /* Tamaño de la fuente para la hora o fecha */
     color: #999; /* Color del texto de la hora o fecha */
     margin-top: 5px; /* Espacio entre el mensaje y la hora o fecha */
+}
+
+#messageForm {
+    width: 200%; /* Establece el ancho al 100% del contenedor padre */
+    max-width: 800px; /* Establece un ancho máximo para evitar que el formulario se vuelva demasiado ancho en pantallas grandes */
 }

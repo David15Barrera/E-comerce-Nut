@@ -77,8 +77,9 @@
             <h2>Contactar con el Usuario</h2>
             <form action="#" method="post">
                 <label for="mensaje">Mensaje:</label>
+                <input type="hidden" id="idProducto" name="idProducto" value="<?php echo $_GET['id']; ?>">
                 <textarea id="mensaje" name="mensaje" required></textarea>
-                <button type="submit">Enviar</button>
+                <button type="submit" >Enviar</button>
             </form>
         </div>
     </div>

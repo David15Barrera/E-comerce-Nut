@@ -129,3 +129,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('.contact-form form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const idProducto = document.getElementById('idProducto').value;
+        const mensaje = document.getElementById('mensaje').value;
+
+        const formData = new FormData();
+        formData.append('idProducto', idProducto);
+        formData.append('mensaje', mensaje);
+        
+        //Las variables idProducto y mensaje si estan siendo capturados de manera correcta
+        // Llamada AJAX para enviar el mensaje
+        fetch('../../../backend/chatAggProd.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // El mensaje se envió correctamente
+                window.location.reload();
+                alert(data.message);
+                // Puedes redirigir a otra página si es necesario
+            } else {
+                // Ocurrió un error al enviar el mensaje
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar el mensaje:', error);
+        });
+    });
+});
