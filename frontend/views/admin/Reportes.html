@@ -28,48 +28,76 @@
         <ul>
             <br>
             <br>
-            <li><a href="../admin/inicioAdmin.php" class="active"><span>Inicio</span></a></li>
+            <li><a href="#" class="active"><span>Inicio</span></a></li>
             <li><a href="../admin/AgregarUser.html"><span class="icono-agregar">Agregar Usuario</span></a></li>
             <li><a href="../admin/autorizarProd.html"><span class="icono-autorizar">Autorizar</span></a></li>
-            <li><a href="#"><span class="icono-reportes">Reporte Usuario</span></a></li>
-            <li><a href="../admin/Reportes.html"><span class="icono-reportes">Reportes</span></a></li>
+            <li><a href="../admin/verReportes.html"><span class="icono-reportes">Reporte Usuario</span></a></li>
+            <li><a href="#"><span class="icono-reportes">Reportes</span></a></li>
             <li><a href="../admin/micuentaA.php"><span class="icono-usuario">Mi Cuenta</span></a></li> 
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>
 
     <div class="reportes-container">
-        <h1>Reportes de Usuario</h1>
-        <table class="reportes-table">
+        <h1>Ingresos a la pagina por Productos</h1>
+        <table class="reportes4-table">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Correo</th>
-                    <th>Motivo</th>
-                    <th>Quién lo reportó</th>
-                    <th>Publicación</th>
-                    <th>Estado del Reporte</th>
-                    <th>Acciones</th>
+                    <th>Nombre del Producto</th>
+                    <th>Ingresos Totales</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Aquí se agregarán las filas de datos -->
+            </tbody>
+        </table>
+
+
+        <h1>Productos Más Vendidos</h1>
+        <table class="reportes-table">
+            <thead>
                 <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                    <td>Comportamiento inapropiado</td>
-                    <td>UsuarioX</td>
-                    <td>Pendiente</td>
-                    <td>
-                        <button class="suspender-btn">Suspender Usuario</button>
-                    </td>
+                    <th>Nombre del Producto</th>
+                    <th>Total de Ventas</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                 </tr>
-                <!-- Puedes agregar más filas según sea necesario -->
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de datos -->
+            </tbody>
+        </table>
+
+        <h1>Ranking de Puntos</h1>
+        <table class="reportes2-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Puntos Totales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de datos -->
+            </tbody>
+        </table>
+
+        <h1>Evento Más Usados</h1>
+        <table class="reportes3-table">
+            <thead>
+                <tr>
+                    <th>Titulo Servicios</th>
+                    <th>Inscripciones</th>
+                    <th>Dueño del Servicio o Evento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de datos -->
             </tbody>
         </table>
     </div>
-<script src="../../js/admin/verReportesUser.js"></script>
+    
+
+<script src="../../js/admin/cincoMasendido.js"></script>
 </body>
 </html>

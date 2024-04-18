@@ -61,3 +61,6 @@ fetch("../../../backend/verReportesUser.php")
 
     })
     .catch(error => console.error('Error al obtener los reportes:', error));
+
+
+    
