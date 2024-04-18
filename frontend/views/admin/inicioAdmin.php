@@ -48,6 +48,10 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
             <p class="animate__animated animate__fadeInUp">¡Disfruta de tu sesión como Administrador!</p>
         </div>
     </div>
+
+    <div class="image-container-ardilla">
+        <img src="../../img/img_user/ardillacool.png" alt="Ardilla Comiendo" width="499" height="499">
+    </div>
 </body>
 </html>
 
