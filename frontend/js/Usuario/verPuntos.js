@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btnComprarPuntos.addEventListener('click', function() {
             // Aquí puedes agregar la lógica para comprar más puntos
             console.log('Comprar más puntos');
+            window.location.href ="cambiarPuntos.html";
         });
     }
 });

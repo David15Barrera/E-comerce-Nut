@@ -38,11 +38,27 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="comment-text">${valora.comentario}</p>
                     </div>
                 `;
+    
+                // Crear un botón de reporte
+                let reportButton = document.createElement('button');
+                reportButton.textContent = 'Reportar';
+                reportButton.classList.add('report-button');
+    
+                // Agregar un evento de clic al botón de reporte
+                reportButton.addEventListener('click', function() {
+                    // Aquí puedes agregar la lógica para reportar la valoración
+                    console.log('Valoración reportada:', valora.id); // Ejemplo de cómo puedes obtener el ID de la valoración
+                });
+    
+                // Agregar el botón de reporte al div del comentario
+                commentDiv.appendChild(reportButton);
+    
+                // Agregar el comentario al contenedor de comentarios
                 document.querySelector('.product-comments').appendChild(commentDiv);
             });
         })
         .catch(error => console.error('Error al obtener las valoraciones:', error));
-    
+        
 
 });
 

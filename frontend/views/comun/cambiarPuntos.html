@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
+    <link rel="stylesheet" href="../../css/styleCanjePuntos.css">
+    <title>Puntos</title>
+</head>
+<body>
+    <header>
+        <nav class="nav__hero">
+            <div class="container nav__container">
+                <div class="logo">
+                    <h2 class="logo__name">Ecommerce<span class="point">.</span></h2>
+                </div>
+                <div class="links">
+                    <a href="../comun/inicioComun.php" class="link">Cuenta</a>
+                    <a href="../comun/productosUser.html" class="link">Productos</a>
+                    <a href="../comun/carrito.html" class="link link--active">Carrito</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <nav class="sidebar">
+        <h3>nut</h3>
+        <ul>
+            <li><a href="#" class="active"><span>Inicio</span></a></li>
+            <li><a href="../comun/publicacion.html"><span class="icono-comprar">Vender</span></a></li>
+            <li><a href="../comun/chats.html"><span class="icono-productos">Chats</span></a></li>
+            <li><a href="../comun/historial.html"><span class="icono-reportes">Mis compras</span></a></li>
+            <li><a href="../comun/editProd.html"><span class="icono-prodEditar">Mis Productos</span></a></li>
+            <li><a href="../comun/micuenta.php"><span class="icono-usuario">Mi Cuenta</span></a></li>
+            <li><a href="../comun/Puntos.html"><span class="icono-Puntos">Puntos</span></a></li>
+            <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
+        </ul>
+    </nav>
+
+<h2>Cambiar Puntos</h2>
+
+<div class="container-point">
+    <div class="points-section">
+        <h2>Puntos Totales</h2>
+        <p class="total-points">500</p>
+        <div class="puntostotales">
+            <div>
+                <h2>Puntos por Servicio:</h2>
+                <p class="service-points">100</p>
+            </div>
+            <div>
+                <h2>Puntos por Compra:</h2>
+                <p class="purchase-points">200</p>
+            </div>
+        </div>
+        <p class="note">Nota: Solo los puntos ganados por servicios o eventos pueden ser cambiados.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="../../img/img_user/ardillaCominedo.png" alt="Ardilla Comiendo" width="300" height="300">
+    </div>
+
+    <div class="conversion-form">
+        <h2>Convertir Puntos a Dinero</h2>
+        <form>
+            <label for="amount">Cantidad a Convertir:</label>
+            <input type="number" id="amount" name="amount" min="1" required>
+            <label for="conver">Conversion en Q:</label>
+            <input type="number" id="conver" name="conver" min="1" readonly>
+            <label for="card-number">Número de Tarjeta:</label>
+            <input type="text" id="card-number" name="card-number" required>
+            <label for="expiry-date">Fecha de Expiración:</label>
+            <input type="text" id="expiry-date" name="expiry-date" required>
+            <button type="submit">Convertir a Dinero</button>
+        </form>
+    </div>
+</div>
+
+<script src="../../js/Usuario/cambiarPuntos.js"></script>
+</body>
+</html>

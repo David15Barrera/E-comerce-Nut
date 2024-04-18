@@ -1,0 +1,93 @@
+.container-point {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: calc(100vh - 50px);
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
+.points-section,
+.conversion-form,
+.image-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.points-section,
+.conversion-form {
+    width: 45%;
+}
+
+.points-section h2,
+.conversion-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.points-section p,
+.conversion-form label {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.points-section .note {
+    color: #777;
+}
+
+.points-section .total-points {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.puntostotales {
+    display: flex;
+    justify-content: space-between;
+}
+
+.puntostotales div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.conversion-form input[type="number"],
+.conversion-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.conversion-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.conversion-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
