@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
-    <link rel="stylesheet" href="../../css/styleEditProduser.css" type="text/css">    
+    <link rel="stylesheet" href="../../css/styleEditServuser.css" type="text/css">    
     <title>Detalle Producto</title>
 </head>
 <body>
@@ -78,7 +78,30 @@
             <!-- Otros comentarios se pueden agregar aquí -->
 
         </div>
+        <div class="Voluntarios">
+            <br>
+            <input type="hidden" id="idProducto" name="idProducto" value="<?php echo $_GET['id']; ?>">
+            <h2>Personas Inscritas</h2>
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Puntos a dar</th>
+                        <th>Estado</th>
+                         <th>Acciones</th>
 
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Datos del inscrito-->
+                    <tr>
+
+                    </tr>
+                    <!-- Agregar más filas según sea necesario -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 <script src="../../js/Usuario/editProdComun.js"></script>

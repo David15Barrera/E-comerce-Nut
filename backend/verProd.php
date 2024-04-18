@@ -14,6 +14,7 @@ if ($result->num_rows > 0) {
             'descripcion' => $row['Descripcion'],
             'Imagen' => $row['Imagen'],
             'precioLocal' => $row['precioLocal'],
+            'Tipo' => $row['Tipo'],
             'precioSistema' => $row['precioSistema']
         ];
         $publicaciones[] = $publicacion;

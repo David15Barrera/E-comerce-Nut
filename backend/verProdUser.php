@@ -26,6 +26,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $publicacion = [
             'idPublicaciones' => $row['idPublicaciones'],
+            'Tipo' => $row['Tipo'],
             'titulo' => $row['titulo'],
             'descripcion' => $row['Descripcion'],
             'Imagen' => $row['Imagen'],

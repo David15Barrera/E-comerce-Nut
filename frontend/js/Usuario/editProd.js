@@ -13,6 +13,7 @@
                 const img = document.createElement('img');
 
                 console.log(publicacion.Imagen);
+                console.log(publicacion.Tipo);
 
                 // Verificar si la ruta de la imagen comienza con '../backend/'
                 let imagePath = publicacion.Imagen.startsWith('../backend/') ? publicacion.Imagen.substring(11) : publicacion.Imagen;
@@ -22,7 +23,13 @@
                 img.alt = publicacion.titulo;
 
                 img.addEventListener('click', () => {
-                    window.location.href = `editProdunitario.php?id=${publicacion.idPublicaciones}`;
+                    if (publicacion.Tipo === 'Productos') {
+                        window.location.href = `editProdunitario.php?id=${publicacion.idPublicaciones}`;
+                    } else if (publicacion.Tipo === 'Servicio') {
+                        window.location.href = `editServunitario.php?id=${publicacion.idPublicaciones}`;
+                    } else {
+                        console.error('Tipo de publicación no reconocido:', publicacion.Tipo);
+                    }
                 });
 
                 const h3 = document.createElement('h3');

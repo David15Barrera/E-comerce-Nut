@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('product-precioLocal').value = product.precioLocal;
             document.getElementById('product-cantidadDisponible').value = product.cantidadDisponible;
             document.getElementById('product-Categoria').value = product.categoria;
-            
+            console.log(product.Tipo);
         })
         .catch(error => console.error('Error al obtener los detalles del producto:', error));
 
@@ -55,4 +55,81 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => console.error('Error al obtener las valoraciones:', error));
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtener el ID del producto de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // Obtener la tabla donde se mostrarán los inscritos
+    const inscritosTableBody = document.querySelector('.Voluntarios tbody');
+
+    // Realizar una solicitud AJAX para obtener la lista de inscritos
+    fetch(`../../../backend/listarinscritos.php?id=${productId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const inscritos = data.inscritos;
+                inscritos.forEach(inscrito => {
+                    // Crear una fila para cada inscrito
+                    const row = document.createElement('tr');
+                    console.log(inscrito.idServicio);
+                    // Agregar los datos del inscrito a la fila
+                    row.innerHTML = `
+                        <td>${inscrito.name}</td>
+                        <td>${inscrito.lastName}</td>
+                        <td>${inscrito.puntos}</td>
+                        <td>${inscrito.estado}</td>
+                        <td>
+                            <button class="btn-asistencia" data-id="${inscrito.idServicio}">Asistió</button>
+                            <button class="btn-abandono" data-id="${inscrito.idServicio}">Abandonó</button>
+                        </td>
+                    `;
+
+                    // Agregar la fila a la tabla
+                    inscritosTableBody.appendChild(row);
+                });
+
+                // Agregar manejadores de eventos para los botones de asistencia y abandono
+                inscritosTableBody.querySelectorAll('.btn-asistencia').forEach(button => {
+                    button.addEventListener('click', function() {
+                        actualizarEstado(button.dataset.id, 'Asistio');
+                    });
+                });
+
+                inscritosTableBody.querySelectorAll('.btn-abandono').forEach(button => {
+                    button.addEventListener('click', function() {
+                        actualizarEstado(button.dataset.id, 'Abandono');
+                    });
+                });
+            } else {
+                console.error('Error al obtener la lista de inscritos:', data.message);
+            }
+        })
+        .catch(error => console.error('Error al obtener la lista de inscritos:', error));
+
+    // Función para enviar una solicitud AJAX para actualizar el estado del servicio
+    function actualizarEstado(idServicio, estado) {
+        fetch('../../../backend/actualizarEstado.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ idServicio: idServicio, estado: estado })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+                // Actualizar la interfaz de usuario u otra lógica según sea necesario
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => console.error('Error al actualizar el estado:', error));
+    }
 });

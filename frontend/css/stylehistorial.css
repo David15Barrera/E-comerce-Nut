@@ -34,3 +34,63 @@
 .tabla th:last-child, .tabla td:last-child {
     border-right: 1px solid #ddd;
 }
+
+
+/*Para la tabla dos de el historial del servicio*/
+.tabla2 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabla2 th, .tabla td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla2 th {
+    background-color: #f2f2f2;
+}
+
+.tabla2 tr:hover {
+    background-color: #f2f2f2;
+}
+
+.tabla2 th:first-child, .tabla td:first-child {
+    border-left: 1px solid #ddd;
+}
+
+.tabla2 th:last-child, .tabla td:last-child {
+    border-right: 1px solid #ddd;
+}
+
+
+/*Para la tabla dos de el historial del servicio*/
+.tabla1 {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.tabla1 th, .tabla td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla1 th {
+    background-color: #f2f2f2;
+}
+
+.tabla1 tr:hover {
+    background-color: #f2f2f2;
+}
+
+.tabla1 th:first-child, .tabla td:first-child {
+    border-left: 1px solid #ddd;
+}
+
+.tabla1 th:last-child, .tabla td:last-child {
+    border-right: 1px solid #ddd;
+}

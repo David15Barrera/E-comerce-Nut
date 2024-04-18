@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if ($stmt_actualizar_puntos->execute()) {
                             // Registrar en el historial de puntos
                             $sql_historial = "INSERT INTO HISTORIAL_PUNTOS (userId, puntosObtenidos, descripcion, fechaoObtencion) 
-                                              VALUES (:userId, :cantidad, 'Resta por compra', NOW())";
+                                              VALUES (:userId, :cantidad, 'Resta compra echa con puntos', NOW())";
                             $stmt_historial = $pdo->prepare($sql_historial);
                             $stmt_historial->bindParam(':userId', $userId);
                             $stmt_historial->bindParam(':cantidad', $cantidad);
@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             if ($stmt_sumar_puntos->execute()) {
                                 // Insertar registro en el historial de puntos
                                 $sql_historial_puntos = "INSERT INTO HISTORIAL_PUNTOS (userId, puntosObtenidos, descripcion, fechaoObtencion) 
-                                                         VALUES (:userId, 50, 'Adición de puntos por compra', NOW())";
+                                                         VALUES (:userId, 50, 'Adicion de puntos por compra', NOW())";
                                 $stmt_historial_puntos = $pdo->prepare($sql_historial_puntos);
                                 $stmt_historial_puntos->bindParam(':userId', $userId);
                         

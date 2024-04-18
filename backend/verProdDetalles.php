@@ -22,6 +22,7 @@ if (isset($_GET['id'])) {
                 'titulo' => $row['titulo'],
                 'descripcion' => $row['Descripcion'],
                 'Imagen' => $row['Imagen'],
+                'Tipo' => $row['Tipo'],
                 'precio' => $row['precioSistema'],
                 'precioLocal' => $row['precioLocal'],
                 'cantidadDisponible' => $row['cantidadDisponible'],

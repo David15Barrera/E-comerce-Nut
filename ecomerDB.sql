@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS UBICACION (
     PRIMARY KEY(idUbicacion)
 );
 
+
 CREATE TABLE IF NOT EXISTS PUBLICACIONES (
     idPublicaciones INT AUTO_INCREMENT,
     userId INT UNSIGNED,
@@ -160,6 +161,16 @@ CREATE TABLE VALORACIONES (
     FOREIGN KEY(publicacionId) REFERENCES PUBLICACIONES(idPublicaciones)
 );
 
+CREATE TABLE IF NOT EXISTS SERVICIOS (
+    idServicio INT AUTO_INCREMENT,
+    idPublicacion INT,
+    userId INT UNSIGNED,
+    duracion VARCHAR(100),
+    estado ENUM('Asistio', 'Abandono', 'Pendiente'),
+    PRIMARY KEY(idServicio),
+    FOREIGN KEY (idPublicacion) REFERENCES PUBLICACIONES(idPublicaciones),
+    FOREIGN KEY (userId) REFERENCES USUARIO(idUser)
+);
 
 -- Datos de ejemplo para la tabla VALORACIONES
 INSERT INTO VALORACIONES (userEvaluadorId, publicacionId, puntuacion, comentario, dateValoracion) VALUES
