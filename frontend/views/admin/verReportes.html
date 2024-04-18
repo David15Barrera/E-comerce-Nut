@@ -1,16 +1,11 @@
-<?php 
-session_start();
-if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
-    $nombreUsuario = $_SESSION['nombreUsuario'];
-    $apellidoUsuario = $_SESSION['apellidoUsuario'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styleUser.css" type="text/css">
-    <title>InicioAdmin</title>
+    <link rel="stylesheet" href="../../css/stylerReporteUsuario.css" type="text/css">
+    <title>Reportes Usuario</title>
 </head>
 <body>
 <header>
@@ -36,25 +31,45 @@ if(isset($_SESSION['nombreUsuario']) && isset($_SESSION['apellidoUsuario'])) {
             <li><a href="#" class="active"><span>Inicio</span></a></li>
             <li><a href="../admin/AgregarUser.html"><span class="icono-agregar">Agregar Usuario</span></a></li>
             <li><a href="../admin/autorizarProd.html"><span class="icono-autorizar">Autorizar</span></a></li>
-            <li><a href="../admin/verReportes.html"><span class="icono-reportes">Reporte Usuario</span></a></li>
+            <li><a href="#"><span class="icono-reportes">Reporte Usuario</span></a></li>
             <li><a href="#"><span class="icono-reportes">Reportes</span></a></li>
             <li><a href="../admin/micuentaA.php"><span class="icono-usuario">Mi Cuenta</span></a></li> 
             <li><a href="../login.html"><span class="icono-cerrar">Cerrar sesión</span></a></li>
         </ul>
     </nav>
-    <div class="content">
-        <div class="container">
-            <h1 class="animate__animated animate__fadeInDown">Bienvenido, <?php echo $nombreUsuario . " " . $apellidoUsuario; ?></h1>
-            <p class="animate__animated animate__fadeInUp">¡Disfruta de tu sesión como Administrador!</p>
-        </div>
+
+    <div class="reportes-container">
+        <h1>Reportes de Usuario</h1>
+        <table class="reportes-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Motivo</th>
+                    <th>Quién lo reportó</th>
+                    <th>Publicación</th>
+                    <th>Estado del Reporte</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarán las filas de datos -->
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>Comportamiento inapropiado</td>
+                    <td>UsuarioX</td>
+                    <td>Pendiente</td>
+                    <td>
+                        <button class="suspender-btn">Suspender Usuario</button>
+                    </td>
+                </tr>
+                <!-- Puedes agregar más filas según sea necesario -->
+            </tbody>
+        </table>
     </div>
+<script src="../../js/admin/verReportesUser.js"></script>
 </body>
 </html>
-
-<?php 
-} else {
-    // Si las variables de sesión no están configuradas, redirige al usuario a la página de inicio de sesión
-    header("Location: login.html");
-    exit();
-}
-?>

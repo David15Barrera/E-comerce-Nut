@@ -47,14 +47,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Agregar un evento de clic al botón de reporte
                 reportButton.addEventListener('click', function() {
                     // Aquí puedes agregar la lógica para reportar la valoración
-                    console.log('Valoración reportada:', valora.id); // Ejemplo de cómo puedes obtener el ID de la valoración
-                });
-    
-                // Agregar el botón de reporte al div del comentario
-                commentDiv.appendChild(reportButton);
-    
-                // Agregar el comentario al contenedor de comentarios
-                document.querySelector('.product-comments').appendChild(commentDiv);
+                    // Obtener el ID del usuario reportado
+                    const userReportadoId = valora.userEvaluadorId;
+
+                    // Obtener el ID de la publicación
+                    const publicacionId = valora.publicacionId;
+
+                    // Obtener la razón del reporte (por ejemplo, siempre reportado por mal comentario)
+                    const razonReporte = 'Reportado por mal comentario';
+
+                    // Crear un FormData para enviar los datos al backend
+                    const formData = new FormData();
+                    formData.append('publicacionId', publicacionId);
+                    formData.append('userReportadoId', userReportadoId);
+                    formData.append('razonReporte', razonReporte);
+
+                    // Enviar los datos del reporte al backend usando Fetch
+                    fetch('../../../backend/reportarUser.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Usuario Reportado Correctamente");
+                            console.log('Reporte insertado correctamente');
+                            // Aquí puedes agregar cualquier otra acción necesaria después de insertar el reporte
+                        } else {
+                            alert("Problemas al Reportar");
+                            console.error('Error al insertar el reporte:', data.message);
+                        }
+                    })
+                    .catch(error => console.error('Error al insertar el reporte:', error));
+                    });
+
+                    // Agregar el botón de reporte al div del comentario
+                    commentDiv.appendChild(reportButton);
+
+                    // Agregar el comentario al contenedor de comentarios
+                    document.querySelector('.product-comments').appendChild(commentDiv);
+                                    document.querySelector('.product-comments').appendChild(commentDiv);
             });
         })
         .catch(error => console.error('Error al obtener las valoraciones:', error));

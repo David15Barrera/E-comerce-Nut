@@ -3,7 +3,7 @@ include_once "connection.php"; // Incluir archivo de conexión
 
 if (isset($_GET['id'])) {
     $idProducto = $_GET['id'];
-    $sql = "SELECT UD.name, UD.lastName, V.puntuacion, V.comentario, V.dateValoracion FROM VALORACIONES V JOIN PUBLICACIONES P ON V.publicacionId = P.idPublicaciones JOIN USUARIO U ON V.userEvaluadorId = U.idUser JOIN USUARIODATOS UD ON U.idUser = UD.userId WHERE P.idPublicaciones = $idProducto";
+    $sql = "SELECT UD.name, UD.lastName, V.puntuacion, V.userEvaluadorId, V.publicacionId, V.comentario, V.dateValoracion FROM VALORACIONES V JOIN PUBLICACIONES P ON V.publicacionId = P.idPublicaciones JOIN USUARIO U ON V.userEvaluadorId = U.idUser JOIN USUARIODATOS UD ON U.idUser = UD.userId WHERE P.idPublicaciones = $idProducto";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -15,6 +15,8 @@ if (isset($_GET['id'])) {
                 'name' => $row['name'],
                 'lastName' => $row['lastName'],
                 'puntuacion' => $row['puntuacion'],
+                'userEvaluadorId' => $row['userEvaluadorId'],
+                'publicacionId' => $row['publicacionId'],
                 'comentario' => $row['comentario'],
                 'dateValoracion' => $row['dateValoracion']
             ];
